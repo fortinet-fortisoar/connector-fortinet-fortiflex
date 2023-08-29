@@ -1,0 +1,999 @@
+{
+  "name": "fortinet-fortiflex",
+  "version": "1.0.0",
+  "label": "Fortinet FortiFlex",
+  "category": "Asset Management",
+  "description": "FortiFlex allows you to automate tasks such as creating entitlements when integrating with cloud orchestration platforms.",
+  "publisher": "Fortinet",
+  "cs_approved": true,
+  "cs_compatible": true,
+  "help_online": "",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "ingestion_supported": false,
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "type": "text",
+        "name": "server",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "description": "Specify the URL of the FortiFlex server to connect and perform automated operations.",
+        "value": "https://support.fortinet.com",
+        "tooltip": "Specify the URL of the FortiFlex server to connect and perform automated operations."
+      },
+      {
+        "title": "Username",
+        "tooltip": "Specify the username to access the FortiFlex server to connect and perform automated operations.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "username",
+        "description": "Specify the username to access the FortiFlex server to connect and perform automated operations."
+      },
+      {
+        "title": "Password",
+        "tooltip": "Specify the password to access the FortiFlex server to connect and perform automated operations.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "password",
+        "description": "Specify the password to access the FortiFlex server to connect and perform automated operations."
+      },
+      {
+        "title": "Client ID",
+        "tooltip": "Specify the ID of the client to access the FortiFlex server to connect and perform automated operations.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "client_id",
+        "description": "Specify the ID of the client to access the FortiFlex server to connect and perform automated operations."
+      },
+      {
+        "title": "Verify SSL",
+        "name": "verify_ssl",
+        "description": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is set to True.",
+        "type": "checkbox",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true,
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is set to True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_programs",
+      "category": "investigation",
+      "annotation": "get_programs",
+      "description": "Retrieves the list of programs for a account from FortiFlex.",
+      "title": "Get All Program List",
+      "parameters": [],
+      "output_schema": {
+        "error": "",
+        "status": "",
+        "message": "",
+        "programs": [
+          {
+            "endDate": "",
+            "accountId": "",
+            "startDate": "",
+            "serialNumber": "",
+            "hasSupportCoverage": ""
+          }
+        ]
+      },
+      "enabled": true
+    },
+    {
+      "operation": "create_configuration",
+      "category": "investigation",
+      "annotation": "create_configuration",
+      "description": "Creates a new configuration under a specific program in FortiFlex based on the program serial number, configuration name, product type ID, and parameters that you have specified.",
+      "title": "Create Configuration",
+      "parameters": [
+        {
+          "title": "Program Serial Number",
+          "description": "Specify the serial number of the program based on which you want to create a new configuration in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "programSerialNumber",
+          "tooltip": "Specify the serial number of the program based on which you want to create a new configuration in FortiFlex."
+        },
+        {
+          "title": "Configuration Name",
+          "description": "Specify the name of the configuration based on which you want to create a new configuration in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "tooltip": "Specify the name of the configuration based on which you want to create a new configuration in FortiFlex."
+        },
+        {
+          "title": "Product Type ID",
+          "description": "Specify the type ID of the program based on which you want to create a new configuration in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "productTypeId",
+          "tooltip": "Specify the type ID of the program based on which you want to create a new configuration in FortiFlex."
+        },
+        {
+          "title": "Parameters",
+          "description": "Specify the parameters for the configuration based on which you want to create a new configuration in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json",
+          "name": "parameters",
+          "tooltip": "Specify the parameters for the configuration based on which you want to create a new configuration in FortiFlex."
+        },
+        {
+          "title": "Account ID",
+          "description": "Specify the ID of the account based on which you want to create a new configuration in FortiFlex.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "accountId",
+          "tooltip": "If \"Account ID\" not provided, create new configuration in the same account that API user belongs to otherwise it will create new configurations in that account."
+        }
+      ],
+      "output_schema": {
+        "error": "",
+        "status": "",
+        "configs": {
+          "id": "",
+          "name": "",
+          "status": "",
+          "accountId": "",
+          "parameters": [
+            {
+              "id": "",
+              "name": "",
+              "value": ""
+            }
+          ],
+          "productType": {
+            "id": "",
+            "name": ""
+          },
+          "programSerialNumber": ""
+        },
+        "message": ""
+      },
+      "enabled": true
+    },
+    {
+      "operation": "get_configurations",
+      "category": "investigation",
+      "annotation": "get_configurations",
+      "description": "Retrieves the list of configurations for a program from FortiFlex based on the program serial number you have specified.",
+      "title": "Get All Configuration List",
+      "parameters": [
+        {
+          "title": "Program Serial Number",
+          "description": "Specify the serial number of the program based on which you want to retrieve configurations from FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "programSerialNumber",
+          "tooltip": "Specify the serial number of the program based on which you want to retrieve configurations from FortiFlex."
+        },
+        {
+          "title": "Account ID",
+          "description": "Specify the ID of the account based on which you want to retrieve configurations from FortiFlex.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "accountId",
+          "tooltip": "If \"Account ID\" not provided, return all configurations of all tenant accounts under the organization otherwise it only return configurations of that account."
+        }
+      ],
+      "output_schema": {
+        "error": "",
+        "status": "",
+        "configs": [
+          {
+            "id": "",
+            "name": "",
+            "status": "",
+            "accountId": "",
+            "parameters": [
+              {
+                "id": "",
+                "name": "",
+                "value": ""
+              }
+            ],
+            "productType": {
+              "id": "",
+              "name": ""
+            },
+            "programSerialNumber": ""
+          }
+        ],
+        "message": ""
+      },
+      "enabled": true
+    },
+    {
+      "operation": "enable_configuration",
+      "category": "investigation",
+      "annotation": "enable_configuration",
+      "description": "Enables a specific configuration of a program in FortiFlex based on the configuration ID you have specified. Note: Enabling a configuration will affect all virtual machines created based on it.",
+      "title": "Enable Configuration",
+      "parameters": [
+        {
+          "title": "Configuration ID",
+          "description": "Specify the ID of the configuration based on which you want to enable a configuration in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "id",
+          "tooltip": "Specify the ID of the configuration based on which you want to enable a configuration in FortiFlex."
+        }
+      ],
+      "output_schema": {
+        "error": "",
+        "status": "",
+        "configs": {
+          "id": "",
+          "name": "",
+          "status": "",
+          "accountId": "",
+          "parameters": [
+            {
+              "id": "",
+              "name": "",
+              "value": ""
+            }
+          ],
+          "productType": {
+            "id": "",
+            "name": ""
+          },
+          "programSerialNumber": ""
+        },
+        "message": ""
+      },
+      "enabled": true
+    },
+    {
+      "operation": "disable_configuration",
+      "category": "investigation",
+      "annotation": "disable_configuration",
+      "description": "Disables a specific configuration of a program in FortiFlex based on the configuration ID you have specified. Note: Disabling a configuration will affect all virtual machines created based on it.",
+      "title": "Disable Configuration",
+      "parameters": [
+        {
+          "title": "Configuration ID",
+          "description": "Specify the ID of the configuration based on which you want to disable a configuration in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "id",
+          "tooltip": "Specify the ID of the configuration based on which you want to disable a configuration in FortiFlex."
+        }
+      ],
+      "output_schema": {
+        "error": "",
+        "status": "",
+        "configs": {
+          "id": "",
+          "name": "",
+          "status": "",
+          "accountId": "",
+          "parameters": [
+            {
+              "id": "",
+              "name": "",
+              "value": ""
+            }
+          ],
+          "productType": {
+            "id": "",
+            "name": ""
+          },
+          "programSerialNumber": ""
+        },
+        "message": ""
+      },
+      "enabled": true
+    },
+    {
+      "operation": "update_configuration",
+      "category": "investigation",
+      "annotation": "update_configuration",
+      "description": "Updates a existing configuration in FortiFlex based on the configuration ID, configuration name, and parameters that you have specified. Note: Updating a configuration's parameters such as number of CPUS, will affect all virtual machines created based on it.",
+      "title": "Update Configuration",
+      "parameters": [
+        {
+          "title": "Configuration ID",
+          "description": "Specify the ID of the configuration based on which you want to update a configuration in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "id",
+          "tooltip": "Specify the ID of the configuration based on which you want to update a configuration in FortiFlex."
+        },
+        {
+          "title": "Configuration Name",
+          "description": "Specify the name of the configuration based on which you want to update a configuration in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "tooltip": "Specify the name of the configuration based on which you want to update a configuration in FortiFlex."
+        },
+        {
+          "title": "Parameters",
+          "description": "Specify the parameters for the configuration based on which you want to update a configuration in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json",
+          "name": "parameters",
+          "tooltip": "Specify the parameters for the configuration based on which you want to update a configuration in FortiFlex."
+        }
+      ],
+      "output_schema": {
+        "error": "",
+        "status": "",
+        "configs": {
+          "id": "",
+          "name": "",
+          "status": "",
+          "accountId": "",
+          "parameters": [
+            {
+              "id": "",
+              "name": "",
+              "value": ""
+            }
+          ],
+          "productType": {
+            "id": "",
+            "name": ""
+          },
+          "programSerialNumber": ""
+        },
+        "message": ""
+      },
+      "enabled": true
+    },
+    {
+      "operation": "create_vm_entitlements",
+      "category": "investigation",
+      "annotation": "create_vm_entitlements",
+      "description": "Creates a VM entitlements based on a configuration in FortiFlex based on the configuration ID, description, count, folder path, and end datetime that you have specified.",
+      "title": "Create VM Entitlements",
+      "parameters": [
+        {
+          "title": "Configuration ID",
+          "description": "Specify the ID of the configuration based on which you want to create a VM entitlements in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "configId",
+          "tooltip": "Specify the ID of the configuration based on which you want to create a VM entitlements in FortiFlex."
+        },
+        {
+          "title": "Count",
+          "description": "Specify the count value based on which you want to create a number of VM entitlements in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "count",
+          "tooltip": "Specify the count value based on which you want to create a number of VM entitlements in FortiFlex."
+        },
+        {
+          "title": "Folder Path",
+          "description": "Specify the folder path based on which you want to create a VM entitlements in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "folderPath",
+          "tooltip": "Specify the folder path on which you want to create a VM entitlements in FortiFlex."
+        },
+        {
+          "title": "Description",
+          "description": "Specify the brief description based on which you want to create a VM entitlements in FortiFlex.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "description",
+          "tooltip": "Specify the brief description based on which you want to create a VM entitlements in FortiFlex."
+        },
+        {
+          "title": "End DateTime",
+          "description": "Specify the end datetime based on which you want to create a VM entitlements in FortiFlex. NOTE: By passing null it will use the Program's end date automatically.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "endDate",
+          "tooltip": "Specify the end datetime based on which you want to create a VM entitlements in FortiFlex. NOTE: By passing null it will use the Program's end date automatically."
+        }
+      ],
+      "output_schema": {
+        "error": "",
+        "status": "",
+        "message": "",
+        "entitlements": [
+          {
+            "token": "",
+            "status": "",
+            "endDate": "",
+            "configId": "",
+            "accountId": "",
+            "startDate": "",
+            "description": "",
+            "tokenStatus": "",
+            "serialNumber": ""
+          }
+        ]
+      },
+      "enabled": true
+    },
+    {
+      "operation": "create_hardware_entitlements",
+      "category": "investigation",
+      "annotation": "create_hardware_entitlements",
+      "description": "Creates a hardware entitlements based on a configuration in FortiFlex based on the configuration ID, serial numbers, and end datetime that you have specified.",
+      "title": "Create Hardware Entitlements",
+      "parameters": [
+        {
+          "title": "Configuration ID",
+          "description": "Specify the ID of the configuration based on which you want to create a hardware entitlements in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "configId",
+          "tooltip": "Specify the ID of the configuration based on which you want to create a hardware entitlements in FortiFlex."
+        },
+        {
+          "title": "Serial Numbers",
+          "description": "Specify the serial numbers based on which you want to create a hardware entitlements in FortiFlex. You can specify multiple serial numbers as comma-separated values.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "serialNumbers",
+          "tooltip": "Specify the serial numbers based on which you want to create a hardware entitlements in FortiFlex. You can specify multiple serial numbers as comma-separated values."
+        },
+        {
+          "title": "End DateTime",
+          "description": "Specify the end datetime based on which you want to create a hardware entitlements in FortiFlex. NOTE: By passing null it will use the Program's end date automatically.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "endDate",
+          "tooltip": "Specify the end datetime based on which you want to create a hardware entitlements in FortiFlex. NOTE: By passing null it will use the Program's end date automatically."
+        }
+      ],
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "error": "",
+        "entitlements": [
+          {
+            "serialNumber": "",
+            "description": "",
+            "configId": "",
+            "accountId": "",
+            "startDate": "",
+            "endDate": "",
+            "status": "",
+            "token": "",
+            "tokenStatus": ""
+          }
+        ]
+      },
+      "enabled": true
+    },
+    {
+      "operation": "get_entitlements",
+      "category": "investigation",
+      "annotation": "get_entitlements",
+      "description": "Retrieves the list of existing entitlements for a configuration from FortiFlex based on the configuration ID you have specified.",
+      "title": "Get All Entitlement List",
+      "parameters": [
+        {
+          "title": "Configuration ID",
+          "description": "Specify the ID of the configuration based on which you want to retrieve entitlements from FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "configId",
+          "tooltip": "Specify the ID of the configuration based on which you want to retrieve entitlements from FortiFlex."
+        },
+        {
+          "title": "Account ID",
+          "description": "Specify the ID of the account based on which you want to retrieve entitlements from FortiFlex.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "accountId",
+          "tooltip": "Specify the ID of the account based on which you want to retrieve entitlements from FortiFlex."
+        },
+        {
+          "title": "Program Serial Number",
+          "description": "Specify the serial number of the program based on which you want to retrieve entitlements from FortiFlex.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "programSerialNumber",
+          "tooltip": "Specify the serial number of the program based on which you want to retrieve entitlements from FortiFlex."
+        }
+      ],
+      "output_schema": {
+        "error": "",
+        "status": "",
+        "message": "",
+        "entitlements": [
+          {
+            "token": "",
+            "status": "",
+            "endDate": "",
+            "configId": "",
+            "accountId": "",
+            "startDate": "",
+            "description": "",
+            "tokenStatus": "",
+            "serialNumber": ""
+          }
+        ]
+      },
+      "enabled": true
+    },
+    {
+      "operation": "update_entitlements",
+      "category": "investigation",
+      "annotation": "update_entitlements",
+      "description": "Update an entitlements details in FortiFlex based on the configuration ID, serial number, description and end datetime that you have specified.",
+      "title": "Update Entitlements",
+      "parameters": [
+        {
+          "title": "Configuration ID",
+          "description": "Specify the ID of the configuration based on which you want to update an entitlements in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "configId",
+          "tooltip": "Specify the ID of the configuration based on which you want to update an entitlements in FortiFlex."
+        },
+        {
+          "title": "Serial Number",
+          "description": "Specify the serial number based on which you want to update an entitlements in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "serialNumber",
+          "tooltip": "Specify the serial number based on which you want to update an entitlements in FortiFlex."
+        },
+        {
+          "title": "Description",
+          "description": "Specify the brief description based on which you want to update an entitlements in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "description",
+          "tooltip": "Specify the brief description based on which you want to update an entitlements in FortiFlex."
+        },
+        {
+          "title": "End DateTime",
+          "description": "Specify the end datetime based on which you want to update an entitlements in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "endDate",
+          "tooltip": "Specify the end datetime based on which you want to update an entitlements in FortiFlex."
+        }
+      ],
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "error": "",
+        "entitlements": [
+          {
+            "serialNumber": "",
+            "description": "",
+            "configId": "",
+            "accountId": "",
+            "startDate": "",
+            "endDate": "",
+            "status": "",
+            "token": "",
+            "tokenStatus": ""
+          }
+        ]
+      },
+      "enabled": true
+    },
+    {
+      "operation": "stop_entitlement",
+      "category": "investigation",
+      "annotation": "stop_entitlement",
+      "description": "Stop an entitlement in FortiFlex based on the serial number you have specified.",
+      "title": "Stop Entitlement",
+      "parameters": [
+        {
+          "title": "Serial Number",
+          "description": "Specify the serial number based on which you want to stop an entitlement in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "serialNumber",
+          "tooltip": "Specify the serial number based on which you want to stop an entitlement in FortiFlex."
+        }
+      ],
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "error": "",
+        "entitlements": [
+          {
+            "serialNumber": "",
+            "description": "",
+            "configId": "",
+            "accountId": "",
+            "startDate": "",
+            "endDate": "",
+            "status": "",
+            "token": "",
+            "tokenStatus": ""
+          }
+        ]
+      },
+      "enabled": true
+    },
+    {
+      "operation": "reactivate_entitlement",
+      "category": "investigation",
+      "annotation": "reactivate_entitlement",
+      "description": "Reactivate an entitlement after being stopped in FortiFlex based on the serial number you have specified.",
+      "title": "Reactivate Entitlement",
+      "parameters": [
+        {
+          "title": "Serial Number",
+          "description": "Specify the serial number based on which you want to reactivate an entitlement in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "serialNumber",
+          "tooltip": "Specify the serial number based on which you want to reactivate an entitlement in FortiFlex."
+        }
+      ],
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "error": "",
+        "entitlements": [
+          {
+            "serialNumber": "",
+            "description": "",
+            "configId": "",
+            "accountId": "",
+            "startDate": "",
+            "endDate": "",
+            "status": "",
+            "token": "",
+            "tokenStatus": ""
+          }
+        ]
+      },
+      "enabled": true
+    },
+    {
+      "operation": "transfer_entitlement",
+      "category": "investigation",
+      "annotation": "transfer_entitlement",
+      "description": "Move serial numbers and entitlements managed by FortiFlex from one account to another.",
+      "title": "Transfer Entitlement",
+      "parameters": [
+        {
+          "title": "Source Account ID",
+          "description": "Specify the account ID of the source based on which you want to move serial numbers and entitlements from one account to another in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "sourceAccountId",
+          "tooltip": "\"Source Account ID\" and \"Target Account ID\" should belong to the same organization and API user should have access to both (permission scope)."
+        },
+        {
+          "title": "Source Config ID",
+          "description": "Specify the config ID of the source based on which you want to move serial numbers and entitlements from one account to another in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "sourceConfigId",
+          "tooltip": "Specify the config ID of the source. Note: \"Source Config ID\" should belong to \"Source Account ID\"."
+        },
+        {
+          "title": "Serial Number",
+          "description": "Specify the comma-separated serial numbers based on which you want to move serial numbers and entitlements from one account to another in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "serialNumbers",
+          "tooltip": "Specify the comma-separated serial numbers. Note: All serial numbers should belong to \"Source Config ID\""
+        },
+        {
+          "title": "Target Account ID",
+          "description": "Specify the account ID of the target based on which you want to move serial numbers and entitlements from one account to another in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "targetAccountId",
+          "tooltip": "\"Source Account ID\" and \"Target Account ID\" should belong to the same organization and API user should have access to both (permission scope)."
+        },
+        {
+          "title": "Target Config ID",
+          "description": "Specify the account ID of the target based on which you want to move serial numbers and entitlements from one account to another in FortiFlex.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "targetConfigId",
+          "tooltip": "Specify the account ID of the target. Note: If \"Target Config ID\" is not provided, create a copy of source configuration in target account regardless of whether similar configuration already exists otherwise it belongs to \"Target Account ID\". Also, source configuration and target configuration should be the same product type. But they don't have to have same parameter values."
+        }
+      ],
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "error": "",
+        "entitlements": [
+          {
+            "serialNumber": "",
+            "description": "",
+            "configId": "",
+            "accountId": "",
+            "startDate": "",
+            "endDate": "",
+            "status": "",
+            "token": "",
+            "tokenStatus": ""
+          }
+        ]
+      },
+      "enabled": true
+    },
+    {
+      "operation": "regenerate_token_for_vm",
+      "category": "investigation",
+      "annotation": "regenerate_token_for_vm",
+      "description": "Regenerate token for a VM in FortiFlex based on the serial number you have specified.",
+      "title": "Regenerate Token for VM",
+      "parameters": [
+        {
+          "title": "Serial Number",
+          "description": "Specify the serial number based on which you want to regenerate token for a VM in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "serialNumber",
+          "tooltip": "Specify the serial number based on which you want to regenerate token for a VM in FortiFlex."
+        }
+      ],
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "error": "",
+        "entitlements": [
+          {
+            "serialNumber": "",
+            "description": "",
+            "configId": "",
+            "accountId": "",
+            "startDate": "",
+            "endDate": "",
+            "status": "",
+            "token": "",
+            "tokenStatus": ""
+          }
+        ]
+      },
+      "enabled": true
+    },
+    {
+      "operation": "get_point_usage_for_vm",
+      "category": "investigation",
+      "annotation": "get_point_usage_for_vm",
+      "description": "Retrieves the total points consumed by one or more virtual machines in a date range in FortiFlex based on the serial number and datetime parameters you have specified.",
+      "title": "Get Point Usage for VM",
+      "parameters": [
+        {
+          "title": "Configuration ID",
+          "description": "Specify the ID of the configuration based on which you want to points for a VM from FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "configId",
+          "tooltip": "Specify the ID of the configuration based on which you want to points for a VM from FortiFlex."
+        },
+        {
+          "title": "Start DateTime",
+          "description": "Specify the start datetime based on which you want to retrieve points for a VM in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "startDate",
+          "tooltip": "Specify the start datetime based on which you want to retrieve points for a VM in FortiFlex."
+        },
+        {
+          "title": "End DateTime",
+          "description": "Specify the end datetime based on which you want to retrieve points for a VM in FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "endDate",
+          "tooltip": "Specify the end datetime based on which you want to retrieve points for a VM in FortiFlex."
+        },
+        {
+          "title": "Account ID",
+          "description": "Specify the ID of the account based on which you want to retrieve points for a VM from FortiFlex.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "accountId",
+          "tooltip": "Specify the ID of the account based on which you want to retrieve points for a VM from FortiFlex."
+        },
+        {
+          "title": "Program Serial Number",
+          "description": "Specify the serial number of the program based on which you want to retrieve points for a VM from FortiFlex.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "programSerialNumber",
+          "tooltip": "Specify the serial number of the program based on which you want to retrieve points for a VM from FortiFlex."
+        }
+      ],
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "error": "",
+        "entitlements": [
+          {
+            "serialNumber": "",
+            "accountId": "",
+            "points": ""
+          }
+        ]
+      },
+      "enabled": true
+    },
+    {
+      "operation": "get_groups",
+      "category": "investigation",
+      "annotation": "get_groups",
+      "description": "Retrieves the list of groups from FortiFlex based on the account ID you have specified.",
+      "title": "Get All Group List",
+      "parameters": [
+        {
+          "title": "Account ID",
+          "description": "Specify the ID of the account based on which you want to retrieve groups from FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "accountId",
+          "tooltip": "Specify the ID of the account based on which you want to retrieve groups from FortiFlex."
+        }
+      ],
+      "output_schema": {
+        "error": "",
+        "groups": [
+          {
+            "accountId": "",
+            "folderPath": "",
+            "usedTokens": "",
+            "availableTokens": ""
+          }
+        ],
+        "status": "",
+        "message": ""
+      },
+      "enabled": true
+    },
+    {
+      "operation": "get_group_next_token",
+      "category": "investigation",
+      "annotation": "get_group_next_token",
+      "description": "Retrieves first available token from FortiFlex based on the account ID and other input parameters you have specified.",
+      "title": "Get NextToken for Group",
+      "parameters": [
+        {
+          "title": "Account ID",
+          "description": "Specify the ID of the account based on which you want to retrieve token from FortiFlex.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "accountId",
+          "tooltip": "Specify the ID of the account based on which you want to retrieve token from FortiFlex."
+        },
+        {
+          "title": "Config ID",
+          "description": "Specify the ID of the config based on which you want to retrieve token from FortiFlex.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "configId",
+          "tooltip": "Specify the ID of the config based on which you want to retrieve token from FortiFlex."
+        },
+        {
+          "title": "Asset Folder Path",
+          "description": "Specify the folder path of the asset based on which you want to retrieve token from FortiFlex.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "folderPath",
+          "tooltip": "Specify the folder path of the asset based on which you want to retrieve token from FortiFlex."
+        }
+      ],
+      "output_schema": {
+        "error": "",
+        "status": "",
+        "message": "",
+        "entitlements": [
+          {
+            "token": "",
+            "status": "",
+            "endDate": "",
+            "configId": "",
+            "accountId": "",
+            "startDate": "",
+            "description": "",
+            "tokenStatus": "",
+            "serialNumber": ""
+          }
+        ]
+      },
+      "enabled": true
+    }
+  ]
+}
