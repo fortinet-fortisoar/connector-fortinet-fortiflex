@@ -5,6 +5,7 @@
   Copyright end """
 
 from .fortiflex_api_auth import *
+from .constants import *
 from connectors.core.connector import get_logger, ConnectorError
 import requests, json
 
@@ -67,11 +68,84 @@ def get_programs(config, params, connector_info):
         raise ConnectorError("{0}".format(str(err)))
 
 
+def create_configuration_parameters(params):
+    parameters = []
+    pid = params.get('productTypeId')
+    if pid == 'FortiGate Virtual Machine - Service Bundle':
+        parameters.append({'id': 1, 'value': CPU_SIZE.get(params.get('FGTVMSBCpuSize'))})
+        parameters.append({'id': 2, 'value': SERVICE_PACKAGE.get(params.get('FGTVMSBServicePackage'))})
+        if params.get('FGTVMSBVDOMs'):
+            parameters.append({'id': 10, 'value': params.get('FGTVMSBVDOMs')})
+        return parameters
+    elif pid == 'FortiGate Virtual Machine - A La Carte Services':
+        parameters.append({'id': 6, 'value': params.get('FGTVMALCSCpuSize')})
+        if params.get('FGTVMALCSFortiGuardServices'):
+            for fortiguard_service in params.get('FGTVMALCSFortiGuardServices'):
+                parameters.append({'id': 7, 'value': FORTIGUARD_SERVICE.get(fortiguard_service)})
+        parameters.append({'id': 8, 'value': SUPPORT_SERVICES_FG.get(params.get('FGTVMALCSSupportServices'))})
+        if params.get('FGTVMALCSVDOMs'):
+            parameters.append({'id': 11, 'value': params.get('FGTVMALCSVDOMs')})
+        if params.get('FGTVMALCSFortiGuardServices'):
+            for cloud_service in params.get('FGTVMALCSFortiGuardServices'):
+                parameters.append({'id': 12, 'value': CLOUD_SERVICE.get(cloud_service)})
+        return parameters
+    elif pid == 'FortiWeb Virtual Machine - Service Bundle':
+        parameters.append({'id': 4, 'value': CPU_SIZE.get(params.get('FWBVMSBCpuSize'))})
+        parameters.append({'id': 5, 'value': SERVICE_PACKAGE.get(params.get('FWBVMSBServicePackage'))})
+        return parameters
+    elif pid == 'FortiClient EMS On-Prem':
+        parameters.append({'id': 13, 'value': params.get('FCLTZtna')})
+        parameters.append({'id': 14, 'value': params.get('FCLTEpp')})
+        parameters.append({'id': 15, 'value': params.get('FCLTChromebook')})
+        parameters.append({'id': 16, 'value': SUPPORT_SERVICES_FOR_FC_EMS.get(params.get('FCLTSupportServices'))})
+        if params.get('FCLTAddons'):
+            parameters.append({'id': 36, 'value': ADDONS.get(params.get('FCLTAddons'))})
+        return parameters
+    elif pid == 'FortiManager Virtual Machine':
+        parameters.append({'id': 30, 'value': params.get('FMGVMManagedDevices')})
+        parameters.append({'id': 9, 'value': params.get('FMGVMAdoms')})
+        return parameters
+    elif pid == 'FortiAnalyzer Virtual Machine':
+        parameters.append({'id': 21, 'value': params.get('FAZVMDailyStorage')})
+        parameters.append({'id': 22, 'value': params.get('FAZVMAdoms')})
+        parameters.append({'id': 23, 'value': SUPPORT_SERVICES_FOR_FAZ.get(params.get('FAZSupportServices'))})
+        return parameters
+    elif pid == 'FortiPortal Virtual Machine':
+        parameters.append({'id': 24, 'value': params.get('FPTLManagedDevices')})
+        return parameters
+    elif pid == 'FortiADC Virtual Machine':
+        parameters.append({'id': 25, 'value': CPU_SIZE.get(params.get('FADCVMCpuSize'))})
+        parameters.append({'id': 26, 'value': SUPPORT_SERVICES_FOR_ADC.get(params.get('FADCVMServicePackage'))})
+        return parameters
+    elif pid == 'FortiGate Hardware':
+        parameters.append({'id': 27, 'value': DEVICE_MODEL.get(params.get('FGTHDeviceModel'))})
+        parameters.append({'id': 28, 'value': SERVICE_PACKAGE_FOR_FG_HD.get(params.get('FCLTServicePackage'))})
+        if params.get('FCLTAddons'):
+            parameters.append({'id': 29, 'value': ADDONS_FOR_FG_HD.get(params.get('FCLTAddons'))})
+        return parameters
+    elif pid == 'FortiWeb Cloud - Private':
+        parameters.append({'id': 32, 'value': params.get('FWBCPVTAvgThroughput')[:-5]})
+        parameters.append({'id': 33, 'value': params.get('FWBCPVTWebApp')})
+        return parameters
+    elif pid == 'FortiWeb Cloud - Public':
+        parameters.append({'id': 34, 'value': params.get('FWBCPUBAvgThroughput')[:-5]})
+        parameters.append({'id': 35, 'value': params.get('FWBCPUBWebApp')})
+        return parameters
+
+
 def create_configuration(config, params, connector_info):
     try:
         endpoint = "/ES/api/fortiflex/v2/configs/create"
-        params = build_payload(params)
-        response = make_rest_call(endpoint, 'POST', connector_info, config, data=json.dumps(params))
+        payload = {
+            'programSerialNumber': params.get('programSerialNumber'),
+            'accountId': params.get('accountId'),
+            'name': params.get('name'),
+            'productTypeId': PRODUCT_ID.get(params.get('productTypeId'))
+        }
+        parameters = create_configuration_parameters(params)
+        payload.update({'parameters': parameters})
+        payload = build_payload(payload)
+        response = make_rest_call(endpoint, 'POST', connector_info, config, data=json.dumps(payload))
         return response
     except Exception as err:
         logger.exception("{0}".format(str(err)))
@@ -112,7 +186,14 @@ def disable_configuration(config, params, connector_info):
 def update_configuration(config, params, connector_info):
     try:
         endpoint = "/ES/api/fortiflex/v2/configs/update"
-        response = make_rest_call(endpoint, 'POST', connector_info, config, data=json.dumps(params))
+        payload = {
+            'id': params.get('id'),
+            'name': params.get('name'),
+        }
+        parameters = create_configuration_parameters(params)
+        payload.update({'parameters': parameters})
+        payload = build_payload(payload)
+        response = make_rest_call(endpoint, 'POST', connector_info, config, data=json.dumps(payload))
         return response
     except Exception as err:
         logger.exception("{0}".format(str(err)))
