@@ -119,24 +119,541 @@
           "tooltip": "Specify the name of the configuration based on which you want to create a new configuration in FortiFlex."
         },
         {
-          "title": "Product Type ID",
-          "description": "Specify the type ID of the program based on which you want to create a new configuration in FortiFlex.",
+          "title": "Product Type",
+          "description": "Select the product type for which you want to create a new configuration in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
-          "type": "integer",
+          "type": "select",
+          "options": [
+            "FortiGate Virtual Machine - Service Bundle",
+            "FortiGate Virtual Machine - A La Carte Services",
+            "FortiWeb Virtual Machine - Service Bundle",
+            "FortiClient EMS On-Prem",
+            "FortiManager Virtual Machine",
+            "FortiAnalyzer Virtual Machine",
+            "FortiPortal Virtual Machine",
+            "FortiADC Virtual Machine",
+            "FortiGate Hardware",
+            "FortiWeb Cloud - Private",
+            "FortiWeb Cloud - Public"
+          ],
+          "onchange": {
+            "FortiGate Virtual Machine - Service Bundle": [
+              {
+                "title": "Number of CPUs",
+                "description": "Select the number of CPUs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "1 CPU",
+                  "2 CPUs",
+                  "4 CPUs",
+                  "8 CPUs",
+                  "16 CPUs",
+                  "32 CPUs",
+                  "Unlimited CPUs"
+                ],
+                "name": "FGTVMSBCpuSize",
+                "tooltip": "Select the number of CPUs for the selected product"
+              },
+              {
+                "title": "Service Package",
+                "description": "Select the service package for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiCare",
+                  "UTP",
+                  "Enterprise",
+                  "ATP"
+                ],
+                "name": "FGTVMSBServicePackage",
+                "tooltip": "Select the service package for the selected product"
+              },
+              {
+                "title": "VDOMs",
+                "description": "Specify the number of VDOMs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FGTVMSBVDOMs",
+                "tooltip": "Specify the number of VDOMs for the selected product. Minimum is 0, Maximum is 500."
+              }
+            ],
+            "FortiGate Virtual Machine - A La Carte Services": [
+              {
+                "title": "Number of CPUs",
+                "description": "Specify the number of CPUs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FGTVMALCSCpuSize",
+                "tooltip": "Specify the number of CPUs for the selected product. Minimum is 1, Maximum is 96"
+              },
+              {
+                "title": "Support Services",
+                "description": "Select the support services for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiCare Premium",
+                  "FortiCare Elite"
+                ],
+                "name": "FGTVMALCSSupportServices",
+                "tooltip": "Select the support services for the selected product"
+              },
+              {
+                "title": "FortiGuard Services",
+                "description": "Select the fortiGuard services for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "multiselect",
+                "options": [
+                  "Intrusion Prevention",
+                  "Advanced Malware",
+                  "Security Rating",
+                  "DLP",
+                  "AI-Based InLine Sandbox",
+                  "Web, DNS & Video Filtering"
+                ],
+                "name": "FGTVMALCSFortiGuardServices",
+                "tooltip": "Select the fortiGuard services for the selected product"
+              },
+              {
+                "title": "Cloud Services",
+                "description": "Select the cloud services for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "multiselect",
+                "options": [
+                  "FortiGate Cloud",
+                  "SD-WAN Underlay",
+                  "FortiAnalyzer Cloud with SOCaaS",
+                  "FortiAnalyzer Cloud"
+                ],
+                "name": "FGTVMALCSCloudServices",
+                "tooltip": "Select the cloud services for the selected product"
+              },
+              {
+                "title": "VDOMs",
+                "description": "Specify the number of VDOMs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FGTVMALCSVDOMs",
+                "tooltip": "Specify the number of VDOMs for the selected product. Minimum is 0, Maximum is 500."
+              }
+            ],
+            "FortiWeb Virtual Machine - Service Bundle": [
+              {
+                "title": "Number of CPUs",
+                "description": "Select the number of CPUs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "1 CPU",
+                  "2 CPUs",
+                  "4 CPUs",
+                  "8 CPUs",
+                  "16 CPUs"
+                ],
+                "name": "FWBVMSBCpuSize",
+                "tooltip": "Select the number of CPUs for the selected product."
+              },
+              {
+                "title": "Service Package",
+                "description": "Select the service package for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "Standard",
+                  "Advanced"
+                ],
+                "name": "FWBVMSBServicePackage",
+                "tooltip": "Select the service package for the selected product."
+              }
+            ],
+            "FortiClient EMS On-Prem": [
+              {
+                "title": "Number of Endpoints for ZTNA/VPN",
+                "description": "Specify the number of endpoints for ZTNA/VPN for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FCLTZtna",
+                "tooltip": "Specify the number of endpoints for ZTNA/VPN for the selected product. Minimum is 0, Maximum is 25000"
+              },
+              {
+                "title": "Number of Endpoints for EPP/ATP + ZTNA/VPN",
+                "description": "Specify the number of endpoints for EPP/ATP + ZTNA/VPN for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FCLTEpp",
+                "tooltip": "Specify the number of endpoints for EPP/ATP + ZTNA/VPN for the selected product. Minimum is 0, Maximum is 25000"
+              },
+              {
+                "title": "Number of Endpoints for Chromebook",
+                "description": "Specify the number of endpoints for Chromebook for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FCLTChromebook",
+                "tooltip": "Specify the number of endpoints for Chromebook for the selected product. Minimum is 0, Maximum is 25000"
+              },
+              {
+                "title": "Support Services",
+                "description": "Select the support services for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiCare Premium"
+                ],
+                "name": "FCLTSupportServices",
+                "tooltip": "Select the support services for the selected product"
+              },
+              {
+                "title": "Addons",
+                "description": "Select the addons for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiCare Best Practice"
+                ],
+                "name": "FCLTAddons",
+                "tooltip": "Specify the addons for the selected product."
+              }
+            ],
+            "FortiManager Virtual Machine": [
+              {
+                "title": "Number of Managed Devices",
+                "description": "Specify the number of managed devices for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FMGVMManagedDevices",
+                "tooltip": "Specify the number of managed devices for the selected product. Minimum is 1, Maximum is 100000."
+              },
+              {
+                "title": "Number of ADOMs",
+                "description": "Specify the number of ADOMs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FMGVMAdoms",
+                "tooltip": "Specify the number of ADOMs for the selected product. Minimum is 0, Maximum is 100000."
+              }
+            ],
+            "FortiAnalyzer Virtual Machine": [
+              {
+                "title": "Daily Storage (GB)",
+                "description": "Specify the daily storage in GB for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FAZVMDailyStorage",
+                "tooltip": "Specify the daily storage in GB for the selected product. Minimum is 5, Maximum is 8300."
+              },
+              {
+                "title": "Number of ADOMs",
+                "description": "Specify the number of ADOMs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FAZVMAdoms",
+                "tooltip": "Specify the number of ADOMs for the selected product. Minimum is 0, Maximum is 1200."
+              },
+              {
+                "title": "Support Services",
+                "description": "Select the support services for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiCare Premium"
+                ],
+                "name": "FAZSupportServices",
+                "tooltip": "Select the support services for the selected product"
+              }
+            ],
+            "FortiPortal Virtual Machine": [
+              {
+                "title": "Number of Managed Devices",
+                "description": "Specify the number of managed devices for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FPTLManagedDevices",
+                "tooltip": "Specify the number of managed devices for the selected product. Minimum is 0, Maximum is 100000."
+              }
+            ],
+            "FortiADC Virtual Machine": [
+              {
+                "title": "Number of CPUs",
+                "description": "Select the number of CPUs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "1 CPU",
+                  "2 CPUs",
+                  "4 CPUs",
+                  "8 CPUs",
+                  "16 CPUs",
+                  "32 CPUs"
+                ],
+                "name": "FADCVMCpuSize",
+                "tooltip": "Select the number of CPUs for the selected product."
+              },
+              {
+                "title": "Service Package",
+                "description": "Select the service package for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "Standard",
+                  "Advanced",
+                  "FortiCare Premium"
+                ],
+                "name": "FADCVMServicePackage",
+                "tooltip": "Select the service package for the selected product."
+              }
+            ],
+            "FortiGate Hardware": [
+              {
+                "title": "Device Model",
+                "description": "Select the device model for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiGate-40F",
+                  "FortiGate-60F",
+                  "FortiGate-70F",
+                  "FortiGate-80F",
+                  "FortiGate-100F",
+                  "FortiGate-60E",
+                  "FortiGate-61F",
+                  "FortiGate-100E",
+                  "FortiGate-101F",
+                  "FortiGate-200E",
+                  "FortiGate-200F",
+                  "FortiGate-201F",
+                  "FortiGate-400F",
+                  "FortiGate-600F",
+                  "FortiWifi-40F",
+                  "FortiWifi-60F",
+                  "FortiGateRugged-60F",
+                  "FortiGateRugged-70F",
+                  "FortiGate-81F",
+                  "FortiGate-101E",
+                  "FortiGate-401F",
+                  "FortiGate-1000F",
+                  "FortiGate-1800F",
+                  "FortiGate-2600F",
+                  "FortiGate-3000F",
+                  "FortiGate-3001F",
+                  "FortiGate-3200F"
+                ],
+                "name": "FGTHDeviceModel",
+                "tooltip": "Select the device model for the selected product."
+              },
+              {
+                "title": "Service Package",
+                "description": "Select the service package for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiCare Premium",
+                  "FortiCare Elite",
+                  "ATP",
+                  "UTP",
+                  "Enterprise"
+                ],
+                "name": "FCLTServicePackage",
+                "tooltip": "Select the service package for the selected product"
+              },
+              {
+                "title": "Addons",
+                "description": "Select the addons for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiCare Elite Upgrade",
+                  "FortiGate Cloud Management",
+                  "AI-Based In-line Sandbox",
+                  "SD-WAN Underlay",
+                  "FortiGuard DLP",
+                  "FortiAnalyzer Cloud",
+                  "SOCaaS",
+                  "Managed FortiGate",
+                  "SD-WAN Connector for FortiSASE",
+                  "FortiConverter Service"
+                ],
+                "name": "FCLTAddons",
+                "tooltip": "Specify the addons for the selected product."
+              }
+            ],
+            "FortiWeb Cloud - Private": [
+              {
+                "title": "Average Throughput",
+                "description": "Select the average throughput for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "10 Mbps",
+                  "25 Mbps",
+                  "50 Mbps",
+                  "75 Mbps",
+                  "100 Mbps",
+                  "150 Mbps",
+                  "200 Mbps",
+                  "250 Mbps",
+                  "300 Mbps",
+                  "350 Mbps",
+                  "400 Mbps",
+                  "450 Mbps",
+                  "500 Mbps",
+                  "600 Mbps",
+                  "700 Mbps",
+                  "800 Mbps",
+                  "900 Mbps",
+                  "1000 Mbps",
+                  "1500 Mbps",
+                  "2000 Mbps",
+                  "2500 Mbps",
+                  "3000 Mbps",
+                  "3500 Mbps",
+                  "4000 Mbps",
+                  "4500 Mbps",
+                  "5000 Mbps",
+                  "5500 Mbps",
+                  "6000 Mbps",
+                  "6500 Mbps",
+                  "7000 Mbps",
+                  "7500 Mbps",
+                  "8000 Mbps",
+                  "8500 Mbps",
+                  "9000 Mbps",
+                  "9500 Mbps",
+                  "10000 Mbps"
+                ],
+                "name": "FWBCPVTAvgThroughput",
+                "tooltip": "Select the average throughput for the selected product."
+              },
+              {
+                "title": "Web Applications",
+                "description": "Specify the number of web applications for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FWBCPVTWebApp",
+                "tooltip": "Specify the number of web applications for the selected product. Minimum is 1, Maximum is 2000."
+              }
+            ],
+            "FortiWeb Cloud - Public": [
+              {
+                "title": "Average Throughput",
+                "description": "Select the average throughput for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "10 Mbps",
+                  "25 Mbps",
+                  "50 Mbps",
+                  "75 Mbps",
+                  "100 Mbps",
+                  "150 Mbps",
+                  "200 Mbps",
+                  "250 Mbps",
+                  "300 Mbps",
+                  "350 Mbps",
+                  "400 Mbps",
+                  "450 Mbps",
+                  "500 Mbps",
+                  "600 Mbps",
+                  "700 Mbps",
+                  "800 Mbps",
+                  "900 Mbps",
+                  "1000 Mbps",
+                  "1500 Mbps",
+                  "2000 Mbps",
+                  "2500 Mbps",
+                  "3000 Mbps",
+                  "3500 Mbps",
+                  "4000 Mbps",
+                  "4500 Mbps",
+                  "5000 Mbps",
+                  "5500 Mbps",
+                  "6000 Mbps",
+                  "6500 Mbps",
+                  "7000 Mbps",
+                  "7500 Mbps",
+                  "8000 Mbps",
+                  "8500 Mbps",
+                  "9000 Mbps",
+                  "9500 Mbps",
+                  "10000 Mbps"
+                ],
+                "name": "FWBCPUBAvgThroughput",
+                "tooltip": "Select the average throughput for the selected product."
+              },
+              {
+                "title": "Web Applications",
+                "description": "Specify the number of web applications for the selected product for which you want to create a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FWBCPUBWebApp",
+                "tooltip": "Specify the number of web applications for the selected product. Minimum is 1, Maximum is 2000."
+              }
+            ]
+          },
           "name": "productTypeId",
           "tooltip": "Specify the type ID of the program based on which you want to create a new configuration in FortiFlex."
-        },
-        {
-          "title": "Parameters",
-          "description": "Specify the parameters for the configuration based on which you want to create a new configuration in FortiFlex.",
-          "required": true,
-          "editable": true,
-          "visible": true,
-          "type": "json",
-          "name": "parameters",
-          "tooltip": "Specify the parameters for the configuration based on which you want to create a new configuration in FortiFlex."
         },
         {
           "title": "Account ID",
@@ -343,14 +860,541 @@
           "tooltip": "Specify the name of the configuration based on which you want to update a configuration in FortiFlex."
         },
         {
-          "title": "Parameters",
-          "description": "Specify the parameters for the configuration based on which you want to update a configuration in FortiFlex.",
+          "title": "Product Type",
+          "description": "Select the product type for which you want to update a new configuration in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
-          "type": "json",
-          "name": "parameters",
-          "tooltip": "Specify the parameters for the configuration based on which you want to update a configuration in FortiFlex."
+          "type": "select",
+          "options": [
+            "FortiGate Virtual Machine - Service Bundle",
+            "FortiGate Virtual Machine - A La Carte Services",
+            "FortiWeb Virtual Machine - Service Bundle",
+            "FortiClient EMS On-Prem",
+            "FortiManager Virtual Machine",
+            "FortiAnalyzer Virtual Machine",
+            "FortiPortal Virtual Machine",
+            "FortiADC Virtual Machine",
+            "FortiGate Hardware",
+            "FortiWeb Cloud - Private",
+            "FortiWeb Cloud - Public"
+          ],
+          "onchange": {
+            "FortiGate Virtual Machine - Service Bundle": [
+              {
+                "title": "Number of CPUs",
+                "description": "Select the number of CPUs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "1 CPU",
+                  "2 CPUs",
+                  "4 CPUs",
+                  "8 CPUs",
+                  "16 CPUs",
+                  "32 CPUs",
+                  "Unlimited CPUs"
+                ],
+                "name": "FGTVMSBCpuSize",
+                "tooltip": "Select the number of CPUs for the selected product"
+              },
+              {
+                "title": "Service Package",
+                "description": "Select the service package for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiCare",
+                  "UTP",
+                  "Enterprise",
+                  "ATP"
+                ],
+                "name": "FGTVMSBServicePackage",
+                "tooltip": "Select the service package for the selected product"
+              },
+              {
+                "title": "VDOMs",
+                "description": "Specify the number of VDOMs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FGTVMSBVDOMs",
+                "tooltip": "Specify the number of VDOMs for the selected product. Minimum is 0, Maximum is 500."
+              }
+            ],
+            "FortiGate Virtual Machine - A La Carte Services": [
+              {
+                "title": "Number of CPUs",
+                "description": "Specify the number of CPUs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FGTVMALCSCpuSize",
+                "tooltip": "Specify the number of CPUs for the selected product. Minimum is 1, Maximum is 96"
+              },
+              {
+                "title": "Support Services",
+                "description": "Select the support services for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiCare Premium",
+                  "FortiCare Elite"
+                ],
+                "name": "FGTVMALCSSupportServices",
+                "tooltip": "Select the support services for the selected product"
+              },
+              {
+                "title": "FortiGuard Services",
+                "description": "Select the fortiGuard services for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "multiselect",
+                "options": [
+                  "Intrusion Prevention",
+                  "Advanced Malware",
+                  "Security Rating",
+                  "DLP",
+                  "AI-Based InLine Sandbox",
+                  "Web, DNS & Video Filtering"
+                ],
+                "name": "FGTVMALCSFortiGuardServices",
+                "tooltip": "Select the fortiGuard services for the selected product"
+              },
+              {
+                "title": "Cloud Services",
+                "description": "Select the cloud services for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "multiselect",
+                "options": [
+                  "FortiGate Cloud",
+                  "SD-WAN Underlay",
+                  "FortiAnalyzer Cloud with SOCaaS",
+                  "FortiAnalyzer Cloud"
+                ],
+                "name": "FGTVMALCSCloudServices",
+                "tooltip": "Select the cloud services for the selected product"
+              },
+              {
+                "title": "VDOMs",
+                "description": "Specify the number of VDOMs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FGTVMALCSVDOMs",
+                "tooltip": "Specify the number of VDOMs for the selected product. Minimum is 0, Maximum is 500."
+              }
+            ],
+            "FortiWeb Virtual Machine - Service Bundle": [
+              {
+                "title": "Number of CPUs",
+                "description": "Select the number of CPUs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "1 CPU",
+                  "2 CPUs",
+                  "4 CPUs",
+                  "8 CPUs",
+                  "16 CPUs"
+                ],
+                "name": "FWBVMSBCpuSize",
+                "tooltip": "Select the number of CPUs for the selected product."
+              },
+              {
+                "title": "Service Package",
+                "description": "Select the service package for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "Standard",
+                  "Advanced"
+                ],
+                "name": "FWBVMSBServicePackage",
+                "tooltip": "Select the service package for the selected product."
+              }
+            ],
+            "FortiClient EMS On-Prem": [
+              {
+                "title": "Number of Endpoints for ZTNA/VPN",
+                "description": "Specify the number of endpoints for ZTNA/VPN for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FCLTZtna",
+                "tooltip": "Specify the number of endpoints for ZTNA/VPN for the selected product. Minimum is 0, Maximum is 25000"
+              },
+              {
+                "title": "Number of Endpoints for EPP/ATP + ZTNA/VPN",
+                "description": "Specify the number of endpoints for EPP/ATP + ZTNA/VPN for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FCLTEpp",
+                "tooltip": "Specify the number of endpoints for EPP/ATP + ZTNA/VPN for the selected product. Minimum is 0, Maximum is 25000"
+              },
+              {
+                "title": "Number of Endpoints for Chromebook",
+                "description": "Specify the number of endpoints for Chromebook for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FCLTChromebook",
+                "tooltip": "Specify the number of endpoints for Chromebook for the selected product. Minimum is 0, Maximum is 25000"
+              },
+              {
+                "title": "Support Services",
+                "description": "Select the support services for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiCare Premium"
+                ],
+                "name": "FCLTSupportServices",
+                "tooltip": "Select the support services for the selected product"
+              },
+              {
+                "title": "Addons",
+                "description": "Select the addons for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiCare Best Practice"
+                ],
+                "name": "FCLTAddons",
+                "tooltip": "Specify the addons for the selected product."
+              }
+            ],
+            "FortiManager Virtual Machine": [
+              {
+                "title": "Number of Managed Devices",
+                "description": "Specify the number of managed devices for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FMGVMManagedDevices",
+                "tooltip": "Specify the number of managed devices for the selected product. Minimum is 1, Maximum is 100000."
+              },
+              {
+                "title": "Number of ADOMs",
+                "description": "Specify the number of ADOMs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FMGVMAdoms",
+                "tooltip": "Specify the number of ADOMs for the selected product. Minimum is 0, Maximum is 100000."
+              }
+            ],
+            "FortiAnalyzer Virtual Machine": [
+              {
+                "title": "Daily Storage (GB)",
+                "description": "Specify the daily storage in GB for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FAZVMDailyStorage",
+                "tooltip": "Specify the daily storage in GB for the selected product. Minimum is 5, Maximum is 8300."
+              },
+              {
+                "title": "Number of ADOMs",
+                "description": "Specify the number of ADOMs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FAZVMAdoms",
+                "tooltip": "Specify the number of ADOMs for the selected product. Minimum is 0, Maximum is 1200."
+              },
+              {
+                "title": "Support Services",
+                "description": "Select the support services for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiCare Premium"
+                ],
+                "name": "FAZSupportServices",
+                "tooltip": "Select the support services for the selected product"
+              }
+            ],
+            "FortiPortal Virtual Machine": [
+              {
+                "title": "Number of Managed Devices",
+                "description": "Specify the number of managed devices for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FPTLManagedDevices",
+                "tooltip": "Specify the number of managed devices for the selected product. Minimum is 0, Maximum is 100000."
+              }
+            ],
+            "FortiADC Virtual Machine": [
+              {
+                "title": "Number of CPUs",
+                "description": "Select the number of CPUs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "1 CPU",
+                  "2 CPUs",
+                  "4 CPUs",
+                  "8 CPUs",
+                  "16 CPUs",
+                  "32 CPUs"
+                ],
+                "name": "FADCVMCpuSize",
+                "tooltip": "Select the number of CPUs for the selected product."
+              },
+              {
+                "title": "Service Package",
+                "description": "Select the service package for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "Standard",
+                  "Advanced",
+                  "FortiCare Premium"
+                ],
+                "name": "FADCVMServicePackage",
+                "tooltip": "Select the service package for the selected product."
+              }
+            ],
+            "FortiGate Hardware": [
+              {
+                "title": "Device Model",
+                "description": "Select the device model for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiGate-40F",
+                  "FortiGate-60F",
+                  "FortiGate-70F",
+                  "FortiGate-80F",
+                  "FortiGate-100F",
+                  "FortiGate-60E",
+                  "FortiGate-61F",
+                  "FortiGate-100E",
+                  "FortiGate-101F",
+                  "FortiGate-200E",
+                  "FortiGate-200F",
+                  "FortiGate-201F",
+                  "FortiGate-400F",
+                  "FortiGate-600F",
+                  "FortiWifi-40F",
+                  "FortiWifi-60F",
+                  "FortiGateRugged-60F",
+                  "FortiGateRugged-70F",
+                  "FortiGate-81F",
+                  "FortiGate-101E",
+                  "FortiGate-401F",
+                  "FortiGate-1000F",
+                  "FortiGate-1800F",
+                  "FortiGate-2600F",
+                  "FortiGate-3000F",
+                  "FortiGate-3001F",
+                  "FortiGate-3200F"
+                ],
+                "name": "FGTHDeviceModel",
+                "tooltip": "Select the device model for the selected product."
+              },
+              {
+                "title": "Service Package",
+                "description": "Select the service package for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiCare Premium",
+                  "FortiCare Elite",
+                  "ATP",
+                  "UTP",
+                  "Enterprise"
+                ],
+                "name": "FCLTServicePackage",
+                "tooltip": "Select the service package for the selected product"
+              },
+              {
+                "title": "Addons",
+                "description": "Select the addons for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "FortiCare Elite Upgrade",
+                  "FortiGate Cloud Management",
+                  "AI-Based In-line Sandbox",
+                  "SD-WAN Underlay",
+                  "FortiGuard DLP",
+                  "FortiAnalyzer Cloud",
+                  "SOCaaS",
+                  "Managed FortiGate",
+                  "SD-WAN Connector for FortiSASE",
+                  "FortiConverter Service"
+                ],
+                "name": "FCLTAddons",
+                "tooltip": "Specify the addons for the selected product."
+              }
+            ],
+            "FortiWeb Cloud - Private": [
+              {
+                "title": "Average Throughput",
+                "description": "Select the average throughput for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "10 Mbps",
+                  "25 Mbps",
+                  "50 Mbps",
+                  "75 Mbps",
+                  "100 Mbps",
+                  "150 Mbps",
+                  "200 Mbps",
+                  "250 Mbps",
+                  "300 Mbps",
+                  "350 Mbps",
+                  "400 Mbps",
+                  "450 Mbps",
+                  "500 Mbps",
+                  "600 Mbps",
+                  "700 Mbps",
+                  "800 Mbps",
+                  "900 Mbps",
+                  "1000 Mbps",
+                  "1500 Mbps",
+                  "2000 Mbps",
+                  "2500 Mbps",
+                  "3000 Mbps",
+                  "3500 Mbps",
+                  "4000 Mbps",
+                  "4500 Mbps",
+                  "5000 Mbps",
+                  "5500 Mbps",
+                  "6000 Mbps",
+                  "6500 Mbps",
+                  "7000 Mbps",
+                  "7500 Mbps",
+                  "8000 Mbps",
+                  "8500 Mbps",
+                  "9000 Mbps",
+                  "9500 Mbps",
+                  "10000 Mbps"
+                ],
+                "name": "FWBCPVTAvgThroughput",
+                "tooltip": "Select the average throughput for the selected product."
+              },
+              {
+                "title": "Web Applications",
+                "description": "Specify the number of web applications for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FWBCPVTWebApp",
+                "tooltip": "Specify the number of web applications for the selected product. Minimum is 1, Maximum is 2000."
+              }
+            ],
+            "FortiWeb Cloud - Public": [
+              {
+                "title": "Average Throughput",
+                "description": "Select the average throughput for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "select",
+                "options": [
+                  "10 Mbps",
+                  "25 Mbps",
+                  "50 Mbps",
+                  "75 Mbps",
+                  "100 Mbps",
+                  "150 Mbps",
+                  "200 Mbps",
+                  "250 Mbps",
+                  "300 Mbps",
+                  "350 Mbps",
+                  "400 Mbps",
+                  "450 Mbps",
+                  "500 Mbps",
+                  "600 Mbps",
+                  "700 Mbps",
+                  "800 Mbps",
+                  "900 Mbps",
+                  "1000 Mbps",
+                  "1500 Mbps",
+                  "2000 Mbps",
+                  "2500 Mbps",
+                  "3000 Mbps",
+                  "3500 Mbps",
+                  "4000 Mbps",
+                  "4500 Mbps",
+                  "5000 Mbps",
+                  "5500 Mbps",
+                  "6000 Mbps",
+                  "6500 Mbps",
+                  "7000 Mbps",
+                  "7500 Mbps",
+                  "8000 Mbps",
+                  "8500 Mbps",
+                  "9000 Mbps",
+                  "9500 Mbps",
+                  "10000 Mbps"
+                ],
+                "name": "FWBCPUBAvgThroughput",
+                "tooltip": "Select the average throughput for the selected product."
+              },
+              {
+                "title": "Web Applications",
+                "description": "Specify the number of web applications for the selected product for which you want to update a new configuration in FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "FWBCPUBWebApp",
+                "tooltip": "Specify the number of web applications for the selected product. Minimum is 1, Maximum is 2000."
+              }
+            ]
+          },
+          "name": "productTypeId",
+          "tooltip": "Specify the type ID of the program based on which you want to update a new configuration in FortiFlex."
         }
       ],
       "output_schema": {

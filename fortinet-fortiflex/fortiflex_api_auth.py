@@ -93,7 +93,8 @@ def acquire_token(self, REFRESH_TOKEN_FLAG):
         else:
             data = {
                 "grant_type": "refresh_token",
-                "refresh_token": self.refresh_token
+                "refresh_token": self.refresh_token,
+                "client_id": self.client_id
             }
         logger.debug("Payload: {0}".format(data))
         endpoint = 'https://customerapiauth.fortinet.com/api/v1/oauth/token/'

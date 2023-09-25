@@ -8,7 +8,7 @@
       "visible": true,
       "image": null,
       "uuid": "1fe754de-2664-4fcd-ac80-5cb38a4111a2",
-      "id": 175,
+      "id": 239,
       "deletedAt": null,
       "importedBy": [],
       "recordTags": [
@@ -36,24 +36,6 @@
           "steps": [
             {
               "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "status": null,
-              "top": "30",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
-              "group": null,
-              "uuid": "757f0349-cb01-4474-a2ca-0f4e7c7b8d6b"
-            },
-            {
-              "@type": "WorkflowStep",
               "name": "Get Point Usage for VM",
               "description": null,
               "arguments": {
@@ -78,6 +60,24 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "group": null,
               "uuid": "de6676a3-745c-4500-8e8f-23ce557486f8"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "757f0349-cb01-4474-a2ca-0f4e7c7b8d6b"
             }
           ],
           "routes": [
@@ -88,13 +88,14 @@
               "sourceStep": "/api/3/workflow_steps/757f0349-cb01-4474-a2ca-0f4e7c7b8d6b",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "2f0cba43-41f2-450a-843b-24b02909e534"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "01b8eae7-e391-41d7-9ef4-ed078b9d6b24",
-          "id": 2006,
+          "id": 2812,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -172,13 +173,14 @@
               "sourceStep": "/api/3/workflow_steps/935b24ef-2e85-42f9-8177-d2606b5fff66",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "b16222a2-0fd6-4881-9de2-4d993aa9c0e9"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "11d3075c-20b6-4339-918a-ca3950833cbc",
-          "id": 2004,
+          "id": 2813,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -208,24 +210,6 @@
           "steps": [
             {
               "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "status": null,
-              "top": "30",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
-              "group": null,
-              "uuid": "551032bd-fb4c-46c8-a894-3984d618e5d9"
-            },
-            {
-              "@type": "WorkflowStep",
               "name": "Disable Configuration",
               "description": null,
               "arguments": {
@@ -246,6 +230,24 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "group": null,
               "uuid": "e5ba0371-4f2a-4db6-8350-0f471d23b7f6"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "551032bd-fb4c-46c8-a894-3984d618e5d9"
             }
           ],
           "routes": [
@@ -256,13 +258,14 @@
               "sourceStep": "/api/3/workflow_steps/551032bd-fb4c-46c8-a894-3984d618e5d9",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "00fcb1e5-06fb-41ab-b50d-841dba77ae78"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "172f9d8c-1fe1-4c7a-a595-030006f48216",
-          "id": 1997,
+          "id": 2814,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -340,13 +343,14 @@
               "sourceStep": "/api/3/workflow_steps/95d69c16-5862-4a68-a42c-1079b975195a",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "8d2124f8-014b-4203-8b5a-3902218f68ed"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "1f6071ca-7eeb-4a72-a0c0-80623e474df5",
-          "id": 2005,
+          "id": 2815,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -376,24 +380,6 @@
           "steps": [
             {
               "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "status": null,
-              "top": "30",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
-              "group": null,
-              "uuid": "28f4bcab-64ed-4edd-9d4a-8dd9ef456be7"
-            },
-            {
-              "@type": "WorkflowStep",
               "name": "Get All Entitlement List",
               "description": null,
               "arguments": {
@@ -416,6 +402,24 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "group": null,
               "uuid": "a2a54c0f-d4b7-4a8d-821b-8ae2acab955b"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "28f4bcab-64ed-4edd-9d4a-8dd9ef456be7"
             }
           ],
           "routes": [
@@ -426,13 +430,14 @@
               "sourceStep": "/api/3/workflow_steps/28f4bcab-64ed-4edd-9d4a-8dd9ef456be7",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "f014eed7-9061-4605-aa76-7a91aa3e98d3"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "33e66f01-2b59-433d-adde-ec3b820cfaf8",
-          "id": 2001,
+          "id": 2816,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -511,13 +516,14 @@
               "sourceStep": "/api/3/workflow_steps/f1b3e122-4bc2-4b7d-b684-fcd0bf8a005e",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "aeb611eb-21a8-484f-9fac-743843270fb8"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "373f93bc-97e8-4eb2-abb7-79d73c0aad11",
-          "id": 1995,
+          "id": 2817,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -610,13 +616,14 @@
               "sourceStep": "/api/3/workflow_steps/348265a2-dafa-4e46-ac60-6ef287214877",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "2896bb1c-0044-4b07-9967-c4ea3ded9b73"
             }
           ],
           "groups": [],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "38917358-0a0c-4f4a-bf74-1d95f306addd",
-          "id": 2007,
+          "id": 2818,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -639,11 +646,41 @@
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1693249776,
+          "lastModifyDate": 1695631891,
           "collection": "/api/3/workflow_collections/1fe754de-2664-4fcd-ac80-5cb38a4111a2",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/8a5d7877-df0b-4e7c-9773-6a630130efab",
           "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Configuration",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiFlex",
+                "config": "",
+                "params": {
+                  "name": "Sample Configuration",
+                  "accountId": "",
+                  "parameters": "[\n  {\n    \"id\": 21,\n    \"value\": 5\n  },\n  {\n    \"id\": 22,\n    \"value\": 2\n  },\n  {\n    \"id\": 23,\n    \"value\": \"FAZFC247\"\n  }\n]",
+                  "FGTVMSBVDOMs": "",
+                  "productTypeId": "FortiGate Virtual Machine - Service Bundle",
+                  "FGTVMSBCpuSize": "1 CPU",
+                  "programSerialNumber": "ELAVMS0000001035",
+                  "FGTVMSBServicePackage": "FortiCare"
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiflex",
+                "operation": "create_configuration",
+                "operationTitle": "Create Configuration",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "93ef788e-93c9-480b-8208-bae2cb69c3f6"
+            },
             {
               "@type": "WorkflowStep",
               "name": "Start",
@@ -661,33 +698,6 @@
               "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
               "group": null,
               "uuid": "8a5d7877-df0b-4e7c-9773-6a630130efab"
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Create Configuration",
-              "description": null,
-              "arguments": {
-                "name": "Fortinet FortiFlex",
-                "config": "",
-                "params": {
-                  "name": "Sample Configuration",
-                  "accountId": "",
-                  "parameters": "[\n  {\n    \"id\": 21,\n    \"value\": 5\n  },\n  {\n    \"id\": 22,\n    \"value\": 2\n  },\n  {\n    \"id\": 23,\n    \"value\": \"FAZFC247\"\n  }\n]",
-                  "productTypeId": 7,
-                  "programSerialNumber": "ELAVMS0000001035"
-                },
-                "version": "1.0.0",
-                "connector": "fortinet-fortiflex",
-                "operation": "create_configuration",
-                "operationTitle": "Create Configuration",
-                "step_variables": []
-              },
-              "status": null,
-              "top": "165",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "93ef788e-93c9-480b-8208-bae2cb69c3f6"
             }
           ],
           "routes": [
@@ -698,13 +708,14 @@
               "sourceStep": "/api/3/workflow_steps/8a5d7877-df0b-4e7c-9773-6a630130efab",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "4ac1e7ef-884b-46c4-86ce-a8659c5c96c4"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "3e8270c9-5a41-47b0-9257-8b4d9ffe3975",
-          "id": 1994,
+          "id": 2819,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -727,36 +738,11 @@
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1693250068,
+          "lastModifyDate": 1695631880,
           "collection": "/api/3/workflow_collections/1fe754de-2664-4fcd-ac80-5cb38a4111a2",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/eb678bea-e51d-421a-ae57-b2fb41e7c510",
           "steps": [
-            {
-              "@type": "WorkflowStep",
-              "name": "Update Configuration",
-              "description": null,
-              "arguments": {
-                "name": "Fortinet FortiFlex",
-                "config": "",
-                "params": {
-                  "id": 6063,
-                  "name": "Sample Configuration",
-                  "parameters": "[\n  {\n    \"id\": 21,\n    \"value\": 5\n  },\n  {\n    \"id\": 22,\n    \"value\": 1\n  },\n  {\n    \"id\": 23,\n    \"value\": \"FAZFC247\"\n  }\n]"
-                },
-                "version": "1.0.0",
-                "connector": "fortinet-fortiflex",
-                "operation": "update_configuration",
-                "operationTitle": "Update Configuration",
-                "step_variables": []
-              },
-              "status": null,
-              "top": "165",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "35c3f82e-c6fb-4ecf-ab32-c8356a426f2a"
-            },
             {
               "@type": "WorkflowStep",
               "name": "Start",
@@ -774,6 +760,35 @@
               "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
               "group": null,
               "uuid": "eb678bea-e51d-421a-ae57-b2fb41e7c510"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Configuration",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiFlex",
+                "config": "",
+                "params": {
+                  "id": 6802,
+                  "name": "Sample Configuration",
+                  "parameters": "[\n  {\n    \"id\": 21,\n    \"value\": 5\n  },\n  {\n    \"id\": 22,\n    \"value\": 1\n  },\n  {\n    \"id\": 23,\n    \"value\": \"FAZFC247\"\n  }\n]",
+                  "FGTVMSBVDOMs": "",
+                  "productTypeId": "FortiGate Virtual Machine - Service Bundle",
+                  "FGTVMSBCpuSize": "2 CPUs",
+                  "FGTVMSBServicePackage": "UTP"
+                },
+                "version": "1.0.0",
+                "connector": "fortinet-fortiflex",
+                "operation": "update_configuration",
+                "operationTitle": "Update Configuration",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "35c3f82e-c6fb-4ecf-ab32-c8356a426f2a"
             }
           ],
           "routes": [
@@ -784,13 +799,14 @@
               "sourceStep": "/api/3/workflow_steps/eb678bea-e51d-421a-ae57-b2fb41e7c510",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "713273de-dbf8-4afd-9f0a-6c604cd0b040"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "50238f7f-00b9-4d6b-a77c-207401ecf6ba",
-          "id": 1998,
+          "id": 2820,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -820,24 +836,6 @@
           "steps": [
             {
               "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "status": null,
-              "top": "30",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
-              "group": null,
-              "uuid": "35d58479-1bf2-4d8b-9752-7f2016938ab8"
-            },
-            {
-              "@type": "WorkflowStep",
               "name": "Get All Program List",
               "description": null,
               "arguments": {
@@ -856,6 +854,24 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "group": null,
               "uuid": "7add838e-0054-492d-b71e-e09573c6c0e7"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "35d58479-1bf2-4d8b-9752-7f2016938ab8"
             }
           ],
           "routes": [
@@ -866,13 +882,14 @@
               "sourceStep": "/api/3/workflow_steps/35d58479-1bf2-4d8b-9752-7f2016938ab8",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "e979175f-6b3a-4aa8-a85d-702a3319c6f8"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "5083ccaf-a85e-4619-8429-e58c35677efc",
-          "id": 1993,
+          "id": 2821,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -950,13 +967,14 @@
               "sourceStep": "/api/3/workflow_steps/42dfa51c-447e-4885-8d57-aca067fa9efb",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "0ccde2e5-23a0-4769-8ec7-1f4a4040f0cd"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "6f701181-0007-4475-bdc7-fb5b3985d719",
-          "id": 1996,
+          "id": 2822,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -986,24 +1004,6 @@
           "steps": [
             {
               "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "status": null,
-              "top": "30",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
-              "group": null,
-              "uuid": "3b0f7c38-5436-41f7-93c6-f0a421dc6c62"
-            },
-            {
-              "@type": "WorkflowStep",
               "name": "Create VM Entitlements",
               "description": null,
               "arguments": {
@@ -1028,6 +1028,24 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "group": null,
               "uuid": "7f34db73-2f91-4a33-817f-e5aa3a5d5388"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "3b0f7c38-5436-41f7-93c6-f0a421dc6c62"
             }
           ],
           "routes": [
@@ -1038,13 +1056,14 @@
               "sourceStep": "/api/3/workflow_steps/3b0f7c38-5436-41f7-93c6-f0a421dc6c62",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "ce198c6b-dca6-47b3-b62c-b0d44fb4769e"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "75d24f0a-4185-4b5e-95bb-8463a8dffae5",
-          "id": 1999,
+          "id": 2823,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -1122,13 +1141,14 @@
               "sourceStep": "/api/3/workflow_steps/137706ff-1508-4fdb-9588-042a7eb6952d",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "4880a1cd-63c3-42a0-b25a-5b6a9cb8fd8e"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "79888c86-8160-4aca-a641-0ffb49dacab5",
-          "id": 2003,
+          "id": 2824,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -1158,6 +1178,24 @@
           "steps": [
             {
               "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "925bcd32-aa2e-43d1-af91-a23f00255ae4"
+            },
+            {
+              "@type": "WorkflowStep",
               "name": "Update Entitlements",
               "description": null,
               "arguments": {
@@ -1181,24 +1219,6 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "group": null,
               "uuid": "2cfd41ac-7123-427c-93ce-c39ef6bbf79d"
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "status": null,
-              "top": "30",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
-              "group": null,
-              "uuid": "925bcd32-aa2e-43d1-af91-a23f00255ae4"
             }
           ],
           "routes": [
@@ -1209,13 +1229,14 @@
               "sourceStep": "/api/3/workflow_steps/925bcd32-aa2e-43d1-af91-a23f00255ae4",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "e353e701-1446-49ad-a51d-357c6d430035"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "7a1d63e5-911c-4e19-9f17-74d1ccbf09aa",
-          "id": 2002,
+          "id": 2825,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -1304,13 +1325,14 @@
               "sourceStep": "/api/3/workflow_steps/4f454008-6b3a-4eb8-953b-007bce1cbea4",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "ca3fdfcc-2594-471b-ba20-aaaa358bbcf8"
             }
           ],
           "groups": [],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "7d62aee4-ca0d-410f-99d5-d8f4a5716167",
-          "id": 2008,
+          "id": 2826,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -1340,24 +1362,6 @@
           "steps": [
             {
               "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "status": null,
-              "top": "30",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
-              "group": null,
-              "uuid": "1c2e35ac-19d9-40b5-bd8b-d193766b1580"
-            },
-            {
-              "@type": "WorkflowStep",
               "name": "Create Hardware Entitlements",
               "description": null,
               "arguments": {
@@ -1380,6 +1384,24 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "group": null,
               "uuid": "f2dceabe-922a-4b8d-9f89-9f7b64911676"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "1c2e35ac-19d9-40b5-bd8b-d193766b1580"
             }
           ],
           "routes": [
@@ -1390,13 +1412,14 @@
               "sourceStep": "/api/3/workflow_steps/1c2e35ac-19d9-40b5-bd8b-d193766b1580",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "d71fe8a8-26e8-4e43-ae7f-418391bc0a56"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "d48d9db8-b434-498b-ad44-5a8e28baac74",
-          "id": 2000,
+          "id": 2827,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -1487,13 +1510,14 @@
               "sourceStep": "/api/3/workflow_steps/6869ce8c-af2c-4dd9-b140-3b2d2fc1a963",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "a812c8f0-4993-4157-b09d-613f796b89d5"
             }
           ],
           "groups": [],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "fc201a21-0abd-42d6-bc70-cb8ce080f99d",
-          "id": 2009,
+          "id": 2828,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
