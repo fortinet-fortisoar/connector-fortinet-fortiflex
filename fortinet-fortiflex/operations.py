@@ -85,8 +85,8 @@ def create_configuration_parameters(params):
         parameters.append({'id': 8, 'value': SUPPORT_SERVICES_FG.get(params.get('FGTVMALCSSupportServices'))})
         if params.get('FGTVMALCSVDOMs'):
             parameters.append({'id': 11, 'value': params.get('FGTVMALCSVDOMs')})
-        if params.get('FGTVMALCSFortiGuardServices'):
-            for cloud_service in params.get('FGTVMALCSFortiGuardServices'):
+        if params.get('FGTVMALCSCloudServices'):
+            for cloud_service in params.get('FGTVMALCSCloudServices'):
                 parameters.append({'id': 12, 'value': CLOUD_SERVICE.get(cloud_service)})
         return parameters
     elif pid == 'FortiWeb Virtual Machine - Service Bundle':
@@ -121,7 +121,8 @@ def create_configuration_parameters(params):
         parameters.append({'id': 27, 'value': DEVICE_MODEL.get(params.get('FGTHDeviceModel'))})
         parameters.append({'id': 28, 'value': SERVICE_PACKAGE_FOR_FG_HD.get(params.get('FCLTServicePackage'))})
         if params.get('FCLTAddons'):
-            parameters.append({'id': 29, 'value': ADDONS_FOR_FG_HD.get(params.get('FCLTAddons'))})
+            for addons in params.get('FCLTAddons'):
+                parameters.append({'id': 29, 'value': ADDONS_FOR_FG_HD.get(addons)})
         return parameters
     elif pid == 'FortiWeb Cloud - Private':
         parameters.append({'id': 32, 'value': params.get('FWBCPVTAvgThroughput')[:-5]})
@@ -232,6 +233,7 @@ def create_hardware_entitlements(config, params, connector_info):
 def get_entitlements(config, params, connector_info):
     try:
         endpoint = "/ES/api/fortiflex/v2/entitlements/list"
+        params = build_payload(params)
         response = make_rest_call(endpoint, 'POST', connector_info, config, data=json.dumps(params))
         return response
     except Exception as err:
