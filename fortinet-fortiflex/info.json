@@ -514,7 +514,7 @@
                 "required": false,
                 "editable": true,
                 "visible": true,
-                "type": "select",
+                "type": "multiselect",
                 "options": [
                   "FortiCare Elite Upgrade",
                   "FortiGate Cloud Management",
@@ -1255,7 +1255,7 @@
                 "required": false,
                 "editable": true,
                 "visible": true,
-                "type": "select",
+                "type": "multiselect",
                 "options": [
                   "FortiCare Elite Upgrade",
                   "FortiGate Cloud Management",
@@ -1566,34 +1566,54 @@
       "title": "Get All Entitlement List",
       "parameters": [
         {
-          "title": "Configuration ID",
-          "description": "Specify the ID of the configuration based on which you want to retrieve entitlements from FortiFlex.",
+          "title": "Filter",
+          "description": "Specify the filter value using which you want to filter entitlements retrieved by this operation.",
           "required": true,
           "editable": true,
           "visible": true,
-          "type": "integer",
-          "name": "configId",
-          "tooltip": "Specify the ID of the configuration based on which you want to retrieve entitlements from FortiFlex."
-        },
-        {
-          "title": "Account ID",
-          "description": "Specify the ID of the account based on which you want to retrieve entitlements from FortiFlex.",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "integer",
-          "name": "accountId",
-          "tooltip": "Specify the ID of the account based on which you want to retrieve entitlements from FortiFlex."
-        },
-        {
-          "title": "Program Serial Number",
-          "description": "Specify the serial number of the program based on which you want to retrieve entitlements from FortiFlex.",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "name": "programSerialNumber",
-          "tooltip": "Specify the serial number of the program based on which you want to retrieve entitlements from FortiFlex."
+          "type": "select",
+          "name": "filter",
+          "tooltip": "Specify the filter value using which you want to filter entitlements retrieved by this operation.",
+          "options": [
+            "Configuration ID",
+            "Account ID"
+          ],
+          "onchange": {
+            "Configuration ID": [
+              {
+                "title": "Configuration ID",
+                "description": "Specify the ID of the configuration based on which you want to retrieve entitlements from FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "configId",
+                "tooltip": "Specify the ID of the configuration based on which you want to retrieve entitlements from FortiFlex."
+              }
+            ],
+            "Account ID": [
+              {
+                "title": "Account ID",
+                "description": "Specify the ID of the account based on which you want to retrieve entitlements from FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "accountId",
+                "tooltip": "Specify the ID of the account based on which you want to retrieve entitlements from FortiFlex."
+              },
+              {
+                "title": "Program Serial Number",
+                "description": "Specify the serial number of the program based on which you want to retrieve entitlements from FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "text",
+                "name": "programSerialNumber",
+                "tooltip": "Specify the serial number of the program based on which you want to retrieve entitlements from FortiFlex."
+              }
+            ]
+          }
         }
       ],
       "output_schema": {
@@ -1884,14 +1904,54 @@
       "title": "Get Point Usage for VM",
       "parameters": [
         {
-          "title": "Configuration ID",
-          "description": "Specify the ID of the configuration based on which you want to points for a VM from FortiFlex.",
+          "title": "Filter",
+          "description": "Specify the filter value using which you want to filter points for a VM retrieved by this operation.",
           "required": true,
           "editable": true,
           "visible": true,
-          "type": "integer",
-          "name": "configId",
-          "tooltip": "Specify the ID of the configuration based on which you want to points for a VM from FortiFlex."
+          "type": "select",
+          "name": "filter",
+          "tooltip": "Specify the filter value using which you want to filter points for a VM retrieved by this operation.",
+          "options": [
+            "Configuration ID",
+            "Account ID"
+          ],
+          "onchange": {
+            "Configuration ID": [
+              {
+                "title": "Configuration ID",
+                "description": "Specify the ID of the configuration based on which you want to retrieve points for a VM from FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "configId",
+                "tooltip": "Specify the ID of the configuration based on which you want to retrieve points for a VM from FortiFlex."
+              }
+            ],
+            "Account ID": [
+              {
+                "title": "Account ID",
+                "description": "Specify the ID of the account based on which you want to retrieve points for a VM from FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "accountId",
+                "tooltip": "Specify the ID of the account based on which you want to retrieve points for a VM from FortiFlex."
+              },
+              {
+                "title": "Program Serial Number",
+                "description": "Specify the serial number of the program based on which you want to retrieve points for a VM from FortiFlex.",
+                "required": true,
+                "editable": true,
+                "visible": true,
+                "type": "text",
+                "name": "programSerialNumber",
+                "tooltip": "Specify the serial number of the program based on which you want to retrieve points for a VM from FortiFlex."
+              }
+            ]
+          }
         },
         {
           "title": "Start DateTime",
@@ -1912,26 +1972,6 @@
           "type": "datetime",
           "name": "endDate",
           "tooltip": "Specify the end datetime based on which you want to retrieve points for a VM in FortiFlex."
-        },
-        {
-          "title": "Account ID",
-          "description": "Specify the ID of the account based on which you want to retrieve points for a VM from FortiFlex.",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "integer",
-          "name": "accountId",
-          "tooltip": "Specify the ID of the account based on which you want to retrieve points for a VM from FortiFlex."
-        },
-        {
-          "title": "Program Serial Number",
-          "description": "Specify the serial number of the program based on which you want to retrieve points for a VM from FortiFlex.",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "name": "programSerialNumber",
-          "tooltip": "Specify the serial number of the program based on which you want to retrieve points for a VM from FortiFlex."
         }
       ],
       "output_schema": {
