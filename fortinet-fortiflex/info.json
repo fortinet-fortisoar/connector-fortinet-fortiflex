@@ -8,8 +8,8 @@
   "cs_approved": true,
   "cs_compatible": true,
   "help_online": "",
-  "icon_small_name": "small.png",
-  "icon_large_name": "large.png",
+  "icon_small_name": "small.jpg",
+  "icon_large_name": "large.jpg",
   "ingestion_supported": false,
   "configuration": {
     "fields": [
