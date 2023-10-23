@@ -1566,7 +1566,7 @@
       "title": "Get All Entitlement List",
       "parameters": [
         {
-          "title": "Filter",
+          "title": "Fetch Based On",
           "description": "Specify the filter value using which you want to filter entitlements retrieved by this operation.",
           "required": true,
           "editable": true,
@@ -1576,7 +1576,7 @@
           "tooltip": "Specify the filter value using which you want to filter entitlements retrieved by this operation.",
           "options": [
             "Configuration ID",
-            "Account ID"
+            "Account ID and Program Serial Number"
           ],
           "onchange": {
             "Configuration ID": [
@@ -1591,7 +1591,7 @@
                 "tooltip": "Specify the ID of the configuration based on which you want to retrieve entitlements from FortiFlex."
               }
             ],
-            "Account ID": [
+            "Account ID and Program Serial Number": [
               {
                 "title": "Account ID",
                 "description": "Specify the ID of the account based on which you want to retrieve entitlements from FortiFlex.",
@@ -1904,7 +1904,7 @@
       "title": "Get Point Usage for VM",
       "parameters": [
         {
-          "title": "Filter",
+          "title": "Fetch Based On",
           "description": "Specify the filter value using which you want to filter points for a VM retrieved by this operation.",
           "required": true,
           "editable": true,
@@ -1914,7 +1914,7 @@
           "tooltip": "Specify the filter value using which you want to filter points for a VM retrieved by this operation.",
           "options": [
             "Configuration ID",
-            "Account ID"
+            "Account ID and Program Serial Number"
           ],
           "onchange": {
             "Configuration ID": [
@@ -1929,7 +1929,7 @@
                 "tooltip": "Specify the ID of the configuration based on which you want to retrieve points for a VM from FortiFlex."
               }
             ],
-            "Account ID": [
+            "Account ID and Program Serial Number": [
               {
                 "title": "Account ID",
                 "description": "Specify the ID of the account based on which you want to retrieve points for a VM from FortiFlex.",
