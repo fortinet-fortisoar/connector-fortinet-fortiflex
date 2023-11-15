@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "label": "Fortinet FortiFlex",
   "category": "Asset Management",
-  "description": "FortiFlex allows you to automate tasks such as creating entitlements when integrating with cloud orchestration platforms.",
+  "description": "FortiFlex is a points-based program that empowers organizations to provision the Fortinet services and solutions, and offers the flexibility to scale their security solutions and services up or down as well as in or out to meet their dynamic deployment demands and evolving requirements.",
   "publisher": "Fortinet",
   "cs_approved": true,
   "cs_compatible": true,
