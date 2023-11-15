@@ -7,7 +7,7 @@
   "publisher": "Fortinet",
   "cs_approved": true,
   "cs_compatible": true,
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/fortinet-fortiflex/720/fortinet-fortiflex-v1-0-0",
   "icon_small_name": "small.jpg",
   "icon_large_name": "large.jpg",
   "ingestion_supported": false,
@@ -57,13 +57,13 @@
       {
         "title": "Verify SSL",
         "name": "verify_ssl",
-        "description": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is set to True.",
+        "description": "Select whether the SSL certificate for the server is to be verified. By default, this option is set to True.",
         "type": "checkbox",
         "required": false,
         "editable": true,
         "visible": true,
         "value": true,
-        "tooltip": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is set to True."
+        "tooltip": "Select whether the SSL certificate for the server is to be verified. By default, this option is set to True."
       }
     ]
   },
@@ -72,7 +72,7 @@
       "operation": "get_programs",
       "category": "investigation",
       "annotation": "get_programs",
-      "description": "Retrieves the list of programs for a account from FortiFlex.",
+      "description": "Retrieves the list of programs for an account from FortiFlex.",
       "title": "Get All Program List",
       "parameters": [],
       "output_schema": {
@@ -95,32 +95,32 @@
       "operation": "create_configuration",
       "category": "investigation",
       "annotation": "create_configuration",
-      "description": "Creates a new configuration under a specific program in FortiFlex based on the program serial number, configuration name, product type ID, and parameters that you have specified.",
+      "description": "Creates a new configuration under a specific program in FortiFlex based on the program serial number, configuration name, product type, and the account ID that you have specified.",
       "title": "Create Configuration",
       "parameters": [
         {
           "title": "Program Serial Number",
-          "description": "Specify the serial number of the program based on which you want to create a new configuration in FortiFlex.",
+          "description": "Specify the serial number of the program based on which to create a new configuration in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "programSerialNumber",
-          "tooltip": "Specify the serial number of the program based on which you want to create a new configuration in FortiFlex."
+          "tooltip": "Specify the serial number of the program based on which to create a new configuration in FortiFlex."
         },
         {
           "title": "Configuration Name",
-          "description": "Specify the name of the configuration based on which you want to create a new configuration in FortiFlex.",
+          "description": "Specify the name of the configuration being created in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "name",
-          "tooltip": "Specify the name of the configuration based on which you want to create a new configuration in FortiFlex."
+          "tooltip": "Specify the name of the configuration being created in FortiFlex."
         },
         {
           "title": "Product Type",
-          "description": "Select the product type for which you want to create a new configuration in FortiFlex.",
+          "description": "Select the product type for which you want to create a new configuration in FortiFlex. You can select from the following options: FortiGate Virtual Machine - Service Bundle, FortiGate Virtual Machine - A La Carte Services, etc.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -142,7 +142,7 @@
             "FortiGate Virtual Machine - Service Bundle": [
               {
                 "title": "Number of CPUs",
-                "description": "Select the number of CPUs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the number of CPUs for the configuration being created in FortiFlex. You can choose from the following options: 1 CPU, 2 CPU, 4 CPU, etc.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -157,11 +157,11 @@
                   "Unlimited CPUs"
                 ],
                 "name": "FGTVMSBCpuSize",
-                "tooltip": "Select the number of CPUs for the selected product"
+                "tooltip": "Select the number of CPUs for the configuration being created in FortiFlex. You can choose from the following options: 1 CPU, 2 CPU, 4 CPU, etc."
               },
               {
                 "title": "Service Package",
-                "description": "Select the service package for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the service package for the configuration being created in FortiFlex. You can choose from the following options: FortiCare, UTP, Enterprise, or ATP.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -173,33 +173,33 @@
                   "ATP"
                 ],
                 "name": "FGTVMSBServicePackage",
-                "tooltip": "Select the service package for the selected product"
+                "tooltip": "Select the service package for the configuration being created in FortiFlex. You can choose from the following options: FortiCare, UTP, Enterprise, or ATP."
               },
               {
                 "title": "VDOMs",
-                "description": "Specify the number of VDOMs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Specify the number of VDOMs for the configuration being created in FortiFlex.",
                 "required": false,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FGTVMSBVDOMs",
-                "tooltip": "Specify the number of VDOMs for the selected product. Minimum is 0, Maximum is 500."
+                "tooltip": "Specify the number of VDOMs for the configuration being created in FortiFlex. Minimum is 0, Maximum is 500."
               }
             ],
             "FortiGate Virtual Machine - A La Carte Services": [
               {
                 "title": "Number of CPUs",
-                "description": "Specify the number of CPUs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Specify the number of CPUs for the configuration being created in FortiFlex. You can specify a minimum of 1 and maximum of 96 CPUs.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FGTVMALCSCpuSize",
-                "tooltip": "Specify the number of CPUs for the selected product. Minimum is 1, Maximum is 96"
+                "tooltip": "Specify the number of CPUs for the configuration being created in FortiFlex. You can specify a minimum of 1 and maximum of 96 CPUs."
               },
               {
                 "title": "Support Services",
-                "description": "Select the support services for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the support services for the configuration being created in FortiFlex. You can choose from the following options: FortiCare Premium or FortiCare Elite.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -209,11 +209,11 @@
                   "FortiCare Elite"
                 ],
                 "name": "FGTVMALCSSupportServices",
-                "tooltip": "Select the support services for the selected product"
+                "tooltip": "Select the support services for the configuration being created in FortiFlex. You can choose from the following options: FortiCare Premium or FortiCare Elite."
               },
               {
                 "title": "FortiGuard Services",
-                "description": "Select the fortiGuard services for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the fortiGuard services for the configuration being created in FortiFlex. You can select one or more of the following options: Intrusion Prevention, Advanced Malware, Security Rating, etc.",
                 "required": false,
                 "editable": true,
                 "visible": true,
@@ -227,11 +227,11 @@
                   "Web, DNS & Video Filtering"
                 ],
                 "name": "FGTVMALCSFortiGuardServices",
-                "tooltip": "Select the fortiGuard services for the selected product"
+                "tooltip": "Select the fortiGuard services for the configuration being created in FortiFlex. You can select one or more of the following options: Intrusion Prevention, Advanced Malware, Security Rating, etc."
               },
               {
                 "title": "Cloud Services",
-                "description": "Select the cloud services for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the cloud services for the configuration being created in FortiFlex. You can select one or more of the following options: FortiGate Cloud, SD-WAN Underlay, FortiAnalyzer Cloud with SOCaaS, or FortiAnalyzer Cloud.",
                 "required": false,
                 "editable": true,
                 "visible": true,
@@ -243,23 +243,23 @@
                   "FortiAnalyzer Cloud"
                 ],
                 "name": "FGTVMALCSCloudServices",
-                "tooltip": "Select the cloud services for the selected product"
+                "tooltip": "Select the cloud services for the configuration being created in FortiFlex. You can select one or more of the following options: FortiGate Cloud, SD-WAN Underlay, FortiAnalyzer Cloud with SOCaaS, or FortiAnalyzer Cloud."
               },
               {
                 "title": "VDOMs",
-                "description": "Specify the number of VDOMs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Specify the number of VDOMs for the configuration being created in FortiFlex. You can specify a minimum of 0 and maximum of 500 VDOMs.",
                 "required": false,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FGTVMALCSVDOMs",
-                "tooltip": "Specify the number of VDOMs for the selected product. Minimum is 0, Maximum is 500."
+                "tooltip": "Specify the number of VDOMs for the configuration being created in FortiFlex. You can specify a minimum of 0 and maximum of 500 VDOMs."
               }
             ],
             "FortiWeb Virtual Machine - Service Bundle": [
               {
                 "title": "Number of CPUs",
-                "description": "Select the number of CPUs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the number of CPUs for the configuration being created in FortiFlex. You can choose from the following options: 1 CPU, 2 CPU, 4 CPU, etc.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -272,11 +272,11 @@
                   "16 CPUs"
                 ],
                 "name": "FWBVMSBCpuSize",
-                "tooltip": "Select the number of CPUs for the selected product."
+                "tooltip": "Select the number of CPUs for the configuration being created in FortiFlex. You can choose from the following options: 1 CPU, 2 CPU, 4 CPU, etc."
               },
               {
                 "title": "Service Package",
-                "description": "Select the service package for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the service package for the configuration being created in FortiFlex. You can choose from the following options: Standard or Advanced.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -286,43 +286,43 @@
                   "Advanced"
                 ],
                 "name": "FWBVMSBServicePackage",
-                "tooltip": "Select the service package for the selected product."
+                "tooltip": "Select the service package for the configuration being created in FortiFlex. You can choose from the following options: Standard or Advanced."
               }
             ],
             "FortiClient EMS On-Prem": [
               {
                 "title": "Number of Endpoints for ZTNA/VPN",
-                "description": "Specify the number of endpoints for ZTNA/VPN for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Specify the count of ZTNA/VPN endpoints for the configuration being created in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FCLTZtna",
-                "tooltip": "Specify the number of endpoints for ZTNA/VPN for the selected product. Minimum is 0, Maximum is 25000"
+                "tooltip": "Specify the count of ZTNA/VPN endpoints for the configuration being created in FortiFlex. Minimum is 0, Maximum is 25000"
               },
               {
                 "title": "Number of Endpoints for EPP/ATP + ZTNA/VPN",
-                "description": "Specify the number of endpoints for EPP/ATP + ZTNA/VPN for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Specify the count of EPP/ATP + ZTNA/VPN endpoints for the configuration being created in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FCLTEpp",
-                "tooltip": "Specify the number of endpoints for EPP/ATP + ZTNA/VPN for the selected product. Minimum is 0, Maximum is 25000"
+                "tooltip": "Specify the count of EPP/ATP + ZTNA/VPN endpoints for the configuration being created in FortiFlex. Minimum is 0, Maximum is 25000"
               },
               {
                 "title": "Number of Endpoints for Chromebook",
-                "description": "Specify the number of endpoints for Chromebook for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Specify the count of Chromebook endpoints for the configuration being created in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FCLTChromebook",
-                "tooltip": "Specify the number of endpoints for Chromebook for the selected product. Minimum is 0, Maximum is 25000"
+                "tooltip": "Specify the count of Chromebook endpoints for the configuration being created in FortiFlex. Minimum is 0, Maximum is 25000"
               },
               {
                 "title": "Support Services",
-                "description": "Select the support services for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the support services for the configuration being created in FortiFlex. Only FortiCare Premium is available for now.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -331,11 +331,11 @@
                   "FortiCare Premium"
                 ],
                 "name": "FCLTSupportServices",
-                "tooltip": "Select the support services for the selected product"
+                "tooltip": "Select the support services for the configuration being created in FortiFlex. Only FortiCare Premium is available for now."
               },
               {
                 "title": "Addons",
-                "description": "Select the addons for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the addons for the configuration being created in FortiFlex. Only FortiCare Best Practice is available for now.",
                 "required": false,
                 "editable": true,
                 "visible": true,
@@ -344,55 +344,55 @@
                   "FortiCare Best Practice"
                 ],
                 "name": "FCLTAddons",
-                "tooltip": "Specify the addons for the selected product."
+                "tooltip": "Select the addons for the configuration being created in FortiFlex. Only FortiCare Best Practice is available for now."
               }
             ],
             "FortiManager Virtual Machine": [
               {
                 "title": "Number of Managed Devices",
-                "description": "Specify the number of managed devices for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Specify the count of managed devices for the configuration being created in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FMGVMManagedDevices",
-                "tooltip": "Specify the number of managed devices for the selected product. Minimum is 1, Maximum is 100000."
+                "tooltip": "SSpecify the count of managed devices for the configuration being created in FortiFlex. Minimum is 1, Maximum is 100000."
               },
               {
                 "title": "Number of ADOMs",
-                "description": "Specify the number of ADOMs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Specify the count of ADOMs for the configuration being created in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FMGVMAdoms",
-                "tooltip": "Specify the number of ADOMs for the selected product. Minimum is 0, Maximum is 100000."
+                "tooltip": "Specify the count of ADOMs for the configuration being created in FortiFlex. Minimum is 0, Maximum is 100000."
               }
             ],
             "FortiAnalyzer Virtual Machine": [
               {
                 "title": "Daily Storage (GB)",
-                "description": "Specify the daily storage in GB for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Specify the daily storage, in GB, for the configuration being created in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FAZVMDailyStorage",
-                "tooltip": "Specify the daily storage in GB for the selected product. Minimum is 5, Maximum is 8300."
+                "tooltip": "Specify the daily storage, in GB, for the configuration being created in FortiFlex. Minimum is 5, Maximum is 8300."
               },
               {
                 "title": "Number of ADOMs",
-                "description": "Specify the number of ADOMs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Specify the count of ADOMs for the configuration being created in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FAZVMAdoms",
-                "tooltip": "Specify the number of ADOMs for the selected product. Minimum is 0, Maximum is 1200."
+                "tooltip": "Specify the count of ADOMs for the configuration being created in FortiFlex. Minimum is 0, Maximum is 1200."
               },
               {
                 "title": "Support Services",
-                "description": "Select the support services for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the support services for the configuration being created in FortiFlex. Only FortiCare Premium is available for now.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -401,25 +401,25 @@
                   "FortiCare Premium"
                 ],
                 "name": "FAZSupportServices",
-                "tooltip": "Select the support services for the selected product"
+                "tooltip": "Select the support services for the configuration being created in FortiFlex. Only FortiCare Premium is available for now."
               }
             ],
             "FortiPortal Virtual Machine": [
               {
                 "title": "Number of Managed Devices",
-                "description": "Specify the number of managed devices for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Specify the count of managed devices for the configuration being created in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FPTLManagedDevices",
-                "tooltip": "Specify the number of managed devices for the selected product. Minimum is 0, Maximum is 100000."
+                "tooltip": "Specify the count of managed devices for the configuration being created in FortiFlex. Minimum is 0, Maximum is 100000."
               }
             ],
             "FortiADC Virtual Machine": [
               {
                 "title": "Number of CPUs",
-                "description": "Select the number of CPUs for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the number of CPUs for the configuration being created in FortiFlex. You can choose from the following options: 1 CPU, 2 CPU, 4CPU, etc.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -433,11 +433,11 @@
                   "32 CPUs"
                 ],
                 "name": "FADCVMCpuSize",
-                "tooltip": "Select the number of CPUs for the selected product."
+                "tooltip": "Select the number of CPUs for the configuration being created in FortiFlex. You can choose from the following options: 1 CPU, 2 CPU, 4CPU, etc."
               },
               {
                 "title": "Service Package",
-                "description": "Select the service package for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the service package for the configuration being created in FortiFlex. You can choose from the following options: Standard, Advanced, or FortiCare Premium.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -448,13 +448,13 @@
                   "FortiCare Premium"
                 ],
                 "name": "FADCVMServicePackage",
-                "tooltip": "Select the service package for the selected product."
+                "tooltip": "Select the service package for the configuration being created in FortiFlex. You can choose from the following options: Standard, Advanced, or FortiCare Premium."
               }
             ],
             "FortiGate Hardware": [
               {
                 "title": "Device Model",
-                "description": "Select the device model for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the device model for the configuration being created in FortiFlex. You can choose from the following options: FortiGate-40F, FortiGate-70F, FortiGate-80F, etc.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -489,11 +489,11 @@
                   "FortiGate-3200F"
                 ],
                 "name": "FGTHDeviceModel",
-                "tooltip": "Select the device model for the selected product."
+                "tooltip": "Select the device model for the configuration being created in FortiFlex. You can choose from the following options: FortiGate-40F, FortiGate-70F, FortiGate-80F, etc."
               },
               {
                 "title": "Service Package",
-                "description": "Select the service package for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the service package for the configuration being created in FortiFlex. You can choose from the following options: FortiCare Premium, FortiCare Elite, ATP, UTP, or Enterprise.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -506,11 +506,11 @@
                   "Enterprise"
                 ],
                 "name": "FCLTServicePackage",
-                "tooltip": "Select the service package for the selected product"
+                "tooltip": "Select the service package for the configuration being created in FortiFlex. You can choose from the following options: FortiCare Premium, FortiCare Elite, ATP, UTP, or Enterprise."
               },
               {
                 "title": "Addons",
-                "description": "Select the addons for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the addons for the configuration being created in FortiFlex. You can select one or more of the following options: FortiCare Elite Upgrade, FortiGate Cloud Management, AI-Based In-line Sandbox, etc. NOTE: FortiCare Elite Upgrade as an add-on is not applicable when the Service Package selected is FortiCare Premium or FortiCare Elite.",
                 "required": false,
                 "editable": true,
                 "visible": true,
@@ -528,13 +528,13 @@
                   "FortiConverter Service"
                 ],
                 "name": "FCLTAddons",
-                "tooltip": "Specify the addons for the selected product."
+                "tooltip": "Select the addons for the configuration being created in FortiFlex. You can select one or more of the following options: FortiCare Elite Upgrade, FortiGate Cloud Management, AI-Based In-line Sandbox, etc. NOTE: FortiCare Elite Upgrade as an add-on is not applicable when the Service Package selected is FortiCare Premium or FortiCare Elite."
               }
             ],
             "FortiWeb Cloud - Private": [
               {
                 "title": "Average Throughput",
-                "description": "Select the average throughput for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the average throughput for the configuration being created in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -578,23 +578,23 @@
                   "10000 Mbps"
                 ],
                 "name": "FWBCPVTAvgThroughput",
-                "tooltip": "Select the average throughput for the selected product."
+                "tooltip": "Select the average throughput for the configuration being created in FortiFlex."
               },
               {
                 "title": "Web Applications",
-                "description": "Specify the number of web applications for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Specify the number of web applications for the configuration being created in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FWBCPVTWebApp",
-                "tooltip": "Specify the number of web applications for the selected product. Minimum is 1, Maximum is 2000."
+                "tooltip": "Specify the number of web applications for the configuration being created in FortiFlex. Minimum is 1, Maximum is 2000."
               }
             ],
             "FortiWeb Cloud - Public": [
               {
                 "title": "Average Throughput",
-                "description": "Select the average throughput for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Select the average throughput for the configuration being created in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -638,17 +638,17 @@
                   "10000 Mbps"
                 ],
                 "name": "FWBCPUBAvgThroughput",
-                "tooltip": "Select the average throughput for the selected product."
+                "tooltip": "Select the average throughput for the configuration being created in FortiFlex."
               },
               {
                 "title": "Web Applications",
-                "description": "Specify the number of web applications for the selected product for which you want to create a new configuration in FortiFlex.",
+                "description": "Specify the number of web applications for the configuration being created in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FWBCPUBWebApp",
-                "tooltip": "Specify the number of web applications for the selected product. Minimum is 1, Maximum is 2000."
+                "tooltip": "Specify the number of web applications for the configuration being created in FortiFlex. Minimum is 1, Maximum is 2000."
               }
             ]
           },
@@ -657,7 +657,7 @@
         },
         {
           "title": "Account ID",
-          "description": "Specify the ID of the account based on which you want to create a new configuration in FortiFlex.",
+          "description": "Specify the ID of the account based on which you want to create a new configuration in FortiFlex..",
           "required": false,
           "editable": true,
           "visible": true,
@@ -695,7 +695,7 @@
       "operation": "get_configurations",
       "category": "investigation",
       "annotation": "get_configurations",
-      "description": "Retrieves the list of configurations for a program from FortiFlex based on the program serial number you have specified.",
+      "description": "Retrieves the list of configurations for a program from FortiFlex based on the program serial number and the account ID you have specified.",
       "title": "Get All Configuration List",
       "parameters": [
         {
@@ -750,18 +750,18 @@
       "operation": "enable_configuration",
       "category": "investigation",
       "annotation": "enable_configuration",
-      "description": "Enables a specific configuration of a program in FortiFlex based on the configuration ID you have specified. Note: Enabling a configuration will affect all virtual machines created based on it.",
+      "description": "Enables a specific configuration of a program in FortiFlex based on the configuration ID you have specified. NOTE: Enabling a configuration affects all virtual machines which were created based on that configuration.",
       "title": "Enable Configuration",
       "parameters": [
         {
           "title": "Configuration ID",
-          "description": "Specify the ID of the configuration based on which you want to enable a configuration in FortiFlex.",
+          "description": "Specify the ID of the configuration to enable in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "id",
-          "tooltip": "Specify the ID of the configuration based on which you want to enable a configuration in FortiFlex."
+          "tooltip": "Specify the ID of the configuration to enable in FortiFlex."
         }
       ],
       "output_schema": {
@@ -793,18 +793,18 @@
       "operation": "disable_configuration",
       "category": "investigation",
       "annotation": "disable_configuration",
-      "description": "Disables a specific configuration of a program in FortiFlex based on the configuration ID you have specified. Note: Disabling a configuration will affect all virtual machines created based on it.",
+      "description": "Disables a specific configuration of a program in FortiFlex based on the configuration ID you have specified.NOTE: Disabling a configuration affects all virtual machines which were created based on that configuration.",
       "title": "Disable Configuration",
       "parameters": [
         {
           "title": "Configuration ID",
-          "description": "Specify the ID of the configuration based on which you want to disable a configuration in FortiFlex.",
+          "description": "Specify the ID of the configuration to disable in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "id",
-          "tooltip": "Specify the ID of the configuration based on which you want to disable a configuration in FortiFlex."
+          "tooltip": "Specify the ID of the configuration to disable in FortiFlex."
         }
       ],
       "output_schema": {
@@ -836,32 +836,32 @@
       "operation": "update_configuration",
       "category": "investigation",
       "annotation": "update_configuration",
-      "description": "Updates a existing configuration in FortiFlex based on the configuration ID, configuration name, and parameters that you have specified. Note: Updating a configuration's parameters such as number of CPUS, will affect all virtual machines created based on it.",
+      "description": "Updates an existing configuration in FortiFlex based on the configuration ID, configuration name, and the product type that you have specified. NOTE: Updating a configuration's parameters, such as the number of CPUs, affects all virtual machines which were created based on that configuration.",
       "title": "Update Configuration",
       "parameters": [
         {
           "title": "Configuration ID",
-          "description": "Specify the ID of the configuration based on which you want to update a configuration in FortiFlex.",
+          "description": "SSpecify the ID of the configuration being updated in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "id",
-          "tooltip": "Specify the ID of the configuration based on which you want to update a configuration in FortiFlex."
+          "tooltip": "Specify the ID of the configuration being updated in FortiFlex."
         },
         {
           "title": "Configuration Name",
-          "description": "Specify the name of the configuration based on which you want to update a configuration in FortiFlex.",
+          "description": "Specify the name of the configuration being updated in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "name",
-          "tooltip": "Specify the name of the configuration based on which you want to update a configuration in FortiFlex."
+          "tooltip": "Specify the name of the configuration being updated in FortiFlex."
         },
         {
           "title": "Product Type",
-          "description": "Select the product type for which you want to update a new configuration in FortiFlex.",
+          "description": "Select the product type to update in FortiFlex. You can select from the following options: FortiGate Virtual Machine - Service Bundle, FortiGate Virtual Machine - A La Carte Services, etc.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -883,7 +883,7 @@
             "FortiGate Virtual Machine - Service Bundle": [
               {
                 "title": "Number of CPUs",
-                "description": "Select the number of CPUs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the number of CPUs for the configuration being updated in FortiFlex. You can choose from the following options: 1 CPU, 2 CPUs, 4 CPUs, etc.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -898,11 +898,11 @@
                   "Unlimited CPUs"
                 ],
                 "name": "FGTVMSBCpuSize",
-                "tooltip": "Select the number of CPUs for the selected product"
+                "tooltip": "Select the number of CPUs for the configuration being updated in FortiFlex. You can choose from the following options: 1 CPU, 2 CPUs, 4 CPUs, etc."
               },
               {
                 "title": "Service Package",
-                "description": "Select the service package for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the service package for the configuration being updated in FortiFlex. You can choose from the following options: FortiCare, UTP, Enterprise, or ATP.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -914,33 +914,33 @@
                   "ATP"
                 ],
                 "name": "FGTVMSBServicePackage",
-                "tooltip": "Select the service package for the selected product"
+                "tooltip": "Select the service package for the configuration being updated in FortiFlex. You can choose from the following options: FortiCare, UTP, Enterprise, or ATP."
               },
               {
                 "title": "VDOMs",
-                "description": "Specify the number of VDOMs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Specify the number of VDOMs for the configuration being updated in FortiFlex.",
                 "required": false,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FGTVMSBVDOMs",
-                "tooltip": "Specify the number of VDOMs for the selected product. Minimum is 0, Maximum is 500."
+                "tooltip": "Specify the number of VDOMs for the configuration being updated in FortiFlex. Minimum is 0, Maximum is 500."
               }
             ],
             "FortiGate Virtual Machine - A La Carte Services": [
               {
                 "title": "Number of CPUs",
-                "description": "Specify the number of CPUs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Specify the number of CPUs for the configuration being updated in FortiFlex. You can specify a minimum of 1 and maximum of 96 CPUs.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FGTVMALCSCpuSize",
-                "tooltip": "Specify the number of CPUs for the selected product. Minimum is 1, Maximum is 96"
+                "tooltip": "Specify the number of CPUs for the configuration being updated in FortiFlex. You can specify a minimum of 1 and maximum of 96 CPUs."
               },
               {
                 "title": "Support Services",
-                "description": "Select the support services for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the support services for the configuration being updated in FortiFlex. You can choose from the following options: FortiCare Premium or FortiCare Elite.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -950,11 +950,11 @@
                   "FortiCare Elite"
                 ],
                 "name": "FGTVMALCSSupportServices",
-                "tooltip": "Select the support services for the selected product"
+                "tooltip": "Select the support services for the configuration being updated in FortiFlex. You can choose from the following options: FortiCare Premium or FortiCare Elite."
               },
               {
                 "title": "FortiGuard Services",
-                "description": "Select the fortiGuard services for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the fortiGuard services for the configuration being updated in FortiFlex. You can select one or more of the following options: Intrusion Prevention, Advanced Malware, etc.",
                 "required": false,
                 "editable": true,
                 "visible": true,
@@ -968,11 +968,11 @@
                   "Web, DNS & Video Filtering"
                 ],
                 "name": "FGTVMALCSFortiGuardServices",
-                "tooltip": "Select the fortiGuard services for the selected product"
+                "tooltip": "Select the fortiGuard services for the configuration being updated in FortiFlex. You can select one or more of the following options: Intrusion Prevention, Advanced Malware, etc."
               },
               {
                 "title": "Cloud Services",
-                "description": "Select the cloud services for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the cloud services for the configuration being updated in FortiFlex. You can select one or more of the following options: FortiGate Cloud, SD-WAN Underlay, FortiAnalyzer Cloud with SOCaaS, or FortiAnalyzer Cloud.",
                 "required": false,
                 "editable": true,
                 "visible": true,
@@ -984,23 +984,23 @@
                   "FortiAnalyzer Cloud"
                 ],
                 "name": "FGTVMALCSCloudServices",
-                "tooltip": "Select the cloud services for the selected product"
+                "tooltip": "Select the cloud services for the configuration being updated in FortiFlex. You can select one or more of the following options: FortiGate Cloud, SD-WAN Underlay, FortiAnalyzer Cloud with SOCaaS, or FortiAnalyzer Cloud."
               },
               {
                 "title": "VDOMs",
-                "description": "Specify the number of VDOMs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Specify the number of VDOMs for the configuration being updated in FortiFlex. You can specify a minimum of 0 and maximum of 500 VDOMs.",
                 "required": false,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FGTVMALCSVDOMs",
-                "tooltip": "Specify the number of VDOMs for the selected product. Minimum is 0, Maximum is 500."
+                "tooltip": "Specify the number of VDOMs for the configuration being updated in FortiFlex. You can specify a minimum of 0 and maximum of 500 VDOMs."
               }
             ],
             "FortiWeb Virtual Machine - Service Bundle": [
               {
                 "title": "Number of CPUs",
-                "description": "Select the number of CPUs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the number of CPUs for the configuration being updated in FortiFlex. You can choose from the following options: 1 CPU, 2 CPUs, 4 CPUs, etc.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -1013,11 +1013,11 @@
                   "16 CPUs"
                 ],
                 "name": "FWBVMSBCpuSize",
-                "tooltip": "Select the number of CPUs for the selected product."
+                "tooltip": "Select the number of CPUs for the configuration being updated in FortiFlex. You can choose from the following options: 1 CPU, 2 CPUs, 4 CPUs, etc."
               },
               {
                 "title": "Service Package",
-                "description": "Select the service package for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the service package for the configuration being updated in FortiFlex. You can choose from the following options: Standard or Advanced.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -1027,43 +1027,43 @@
                   "Advanced"
                 ],
                 "name": "FWBVMSBServicePackage",
-                "tooltip": "Select the service package for the selected product."
+                "tooltip": "Select the service package for the configuration being updated in FortiFlex. You can choose from the following options: Standard or Advanced."
               }
             ],
             "FortiClient EMS On-Prem": [
               {
                 "title": "Number of Endpoints for ZTNA/VPN",
-                "description": "Specify the number of endpoints for ZTNA/VPN for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Specify the count of ZTNA/VPN endpoints for the configuration being updated in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FCLTZtna",
-                "tooltip": "Specify the number of endpoints for ZTNA/VPN for the selected product. Minimum is 0, Maximum is 25000"
+                "tooltip": "Specify the count of ZTNA/VPN endpoints for the configuration being updated in FortiFlex. Minimum is 0, Maximum is 25000"
               },
               {
                 "title": "Number of Endpoints for EPP/ATP + ZTNA/VPN",
-                "description": "Specify the number of endpoints for EPP/ATP + ZTNA/VPN for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Specify the count of EPP/ATP + ZTNA/VPN endpoints for the configuration being updated in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FCLTEpp",
-                "tooltip": "Specify the number of endpoints for EPP/ATP + ZTNA/VPN for the selected product. Minimum is 0, Maximum is 25000"
+                "tooltip": "Specify the count of EPP/ATP + ZTNA/VPN endpoints for the configuration being updated in FortiFlex. Minimum is 0, Maximum is 25000"
               },
               {
                 "title": "Number of Endpoints for Chromebook",
-                "description": "Specify the number of endpoints for Chromebook for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Specify the count of Chromebook endpoints for the configuration being updated in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FCLTChromebook",
-                "tooltip": "Specify the number of endpoints for Chromebook for the selected product. Minimum is 0, Maximum is 25000"
+                "tooltip": "Specify the count of Chromebook endpoints for the configuration being updated in FortiFlex. Minimum is 0, Maximum is 25000"
               },
               {
                 "title": "Support Services",
-                "description": "Select the support services for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the support services for the configuration being updated in FortiFlex. Only FortiCare Premium is available for now.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -1072,11 +1072,11 @@
                   "FortiCare Premium"
                 ],
                 "name": "FCLTSupportServices",
-                "tooltip": "Select the support services for the selected product"
+                "tooltip": "Select the support services for the configuration being updated in FortiFlex. Only FortiCare Premium is available for now."
               },
               {
                 "title": "Addons",
-                "description": "Select the addons for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the addons for the configuration being updated in FortiFlex. Only FortiCare Best Practice is available for now.",
                 "required": false,
                 "editable": true,
                 "visible": true,
@@ -1085,55 +1085,55 @@
                   "FortiCare Best Practice"
                 ],
                 "name": "FCLTAddons",
-                "tooltip": "Specify the addons for the selected product."
+                "tooltip": "Select the addons for the configuration being updated in FortiFlex. Only FortiCare Best Practice is available for now."
               }
             ],
             "FortiManager Virtual Machine": [
               {
                 "title": "Number of Managed Devices",
-                "description": "Specify the number of managed devices for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Specify the count of managed devices for the configuration being updated in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FMGVMManagedDevices",
-                "tooltip": "Specify the number of managed devices for the selected product. Minimum is 1, Maximum is 100000."
+                "tooltip": "Specify the count of managed devices for the configuration being updated in FortiFlex. Minimum is 1, Maximum is 100000."
               },
               {
                 "title": "Number of ADOMs",
-                "description": "Specify the number of ADOMs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Specify the count of ADOMs for the configuration being updated in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FMGVMAdoms",
-                "tooltip": "Specify the number of ADOMs for the selected product. Minimum is 0, Maximum is 100000."
+                "tooltip": "Specify the count of ADOMs for the configuration being updated in FortiFlex. Minimum is 0, Maximum is 100000."
               }
             ],
             "FortiAnalyzer Virtual Machine": [
               {
                 "title": "Daily Storage (GB)",
-                "description": "Specify the daily storage in GB for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Specify the daily storage, in GB, for the configuration being updated in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FAZVMDailyStorage",
-                "tooltip": "Specify the daily storage in GB for the selected product. Minimum is 5, Maximum is 8300."
+                "tooltip": "Specify the daily storage, in GB, for the configuration being updated in FortiFlex. Minimum is 5, Maximum is 8300."
               },
               {
                 "title": "Number of ADOMs",
-                "description": "Specify the number of ADOMs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Specify the count of ADOMs for the configuration being updated in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FAZVMAdoms",
-                "tooltip": "Specify the number of ADOMs for the selected product. Minimum is 0, Maximum is 1200."
+                "tooltip": "Specify the count of ADOMs for the configuration being updated in FortiFlex. Minimum is 0, Maximum is 1200."
               },
               {
                 "title": "Support Services",
-                "description": "Select the support services for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the support services for the configuration being updated in FortiFlex. Only FortiCare Premium is available for now.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -1142,25 +1142,25 @@
                   "FortiCare Premium"
                 ],
                 "name": "FAZSupportServices",
-                "tooltip": "Select the support services for the selected product"
+                "tooltip": "Select the support services for the configuration being updated in FortiFlex. Only FortiCare Premium is available for now."
               }
             ],
             "FortiPortal Virtual Machine": [
               {
                 "title": "Number of Managed Devices",
-                "description": "Specify the number of managed devices for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Specify the count of managed devices for the configuration being updated in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FPTLManagedDevices",
-                "tooltip": "Specify the number of managed devices for the selected product. Minimum is 0, Maximum is 100000."
+                "tooltip": "Specify the count of managed devices for the configuration being updated in FortiFlex. Minimum is 0, Maximum is 100000."
               }
             ],
             "FortiADC Virtual Machine": [
               {
                 "title": "Number of CPUs",
-                "description": "Select the number of CPUs for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the number of CPUs for the configuration being updated in FortiFlex. You can choose from the following options: 1 CPU, 2 CPUs, 4 CPUs, etc.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -1174,11 +1174,11 @@
                   "32 CPUs"
                 ],
                 "name": "FADCVMCpuSize",
-                "tooltip": "Select the number of CPUs for the selected product."
+                "tooltip": "Select the number of CPUs for the configuration being updated in FortiFlex. You can choose from the following options: 1 CPU, 2 CPUs, 4 CPUs, etc."
               },
               {
                 "title": "Service Package",
-                "description": "Select the service package for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the service package for the configuration being updated in FortiFlex. You can choose from the following options: Standard, Advanced, or FortiCare Premium.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -1189,13 +1189,13 @@
                   "FortiCare Premium"
                 ],
                 "name": "FADCVMServicePackage",
-                "tooltip": "Select the service package for the selected product."
+                "tooltip": "Select the service package for the configuration being updated in FortiFlex. You can choose from the following options: Standard, Advanced, or FortiCare Premium."
               }
             ],
             "FortiGate Hardware": [
               {
                 "title": "Device Model",
-                "description": "Select the device model for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the device model for the configuration being updated in FortiFlex. You can choose from the following options: FortiGate-40F, FortiGate-60F, FortiGate-70F, etc.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -1230,11 +1230,11 @@
                   "FortiGate-3200F"
                 ],
                 "name": "FGTHDeviceModel",
-                "tooltip": "Select the device model for the selected product."
+                "tooltip": "Select the device model for the configuration being updated in FortiFlex. You can choose from the following options: FortiGate-40F, FortiGate-60F, FortiGate-70F, etc."
               },
               {
                 "title": "Service Package",
-                "description": "Select the service package for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the service package for the configuration being updated in FortiFlex. You can choose from the following options: FortiCare Premium, FortiCare Elite, ATP, UTP, or Enterprise.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -1247,11 +1247,11 @@
                   "Enterprise"
                 ],
                 "name": "FCLTServicePackage",
-                "tooltip": "Select the service package for the selected product"
+                "tooltip": "Select the service package for the configuration being updated in FortiFlex. You can choose from the following options: FortiCare Premium, FortiCare Elite, ATP, UTP, or Enterprise."
               },
               {
                 "title": "Addons",
-                "description": "Select the addons for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the addons for the configuration being updated in FortiFlex. You can select one or more of the following options: FortiCare Elite Upgrade, FortiGate Cloud Management, AI-Based In-line Sandbox, etc. NOTE: FortiCare Elite Upgrade as an add-on is not applicable when the Service Package selected is FortiCare Premium or FortiCare Elite.",
                 "required": false,
                 "editable": true,
                 "visible": true,
@@ -1269,13 +1269,13 @@
                   "FortiConverter Service"
                 ],
                 "name": "FCLTAddons",
-                "tooltip": "Specify the addons for the selected product."
+                "tooltip": "Select the addons for the configuration being updated in FortiFlex. You can select one or more of the following options: FortiCare Elite Upgrade, FortiGate Cloud Management, AI-Based In-line Sandbox, etc. NOTE: FortiCare Elite Upgrade as an add-on is not applicable when the Service Package selected is FortiCare Premium or FortiCare Elite."
               }
             ],
             "FortiWeb Cloud - Private": [
               {
                 "title": "Average Throughput",
-                "description": "Select the average throughput for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the average throughput for the configuration being updated in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -1319,23 +1319,23 @@
                   "10000 Mbps"
                 ],
                 "name": "FWBCPVTAvgThroughput",
-                "tooltip": "Select the average throughput for the selected product."
+                "tooltip": "Select the average throughput for the configuration being updated in FortiFlex."
               },
               {
                 "title": "Web Applications",
-                "description": "Specify the number of web applications for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Specify the number of web applications for the configuration being updated in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FWBCPVTWebApp",
-                "tooltip": "Specify the number of web applications for the selected product. Minimum is 1, Maximum is 2000."
+                "tooltip": "Specify the number of web applications for the configuration being updated in FortiFlex. Minimum is 1, Maximum is 2000."
               }
             ],
             "FortiWeb Cloud - Public": [
               {
                 "title": "Average Throughput",
-                "description": "Select the average throughput for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Select the average throughput for the configuration being updated in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
@@ -1379,17 +1379,17 @@
                   "10000 Mbps"
                 ],
                 "name": "FWBCPUBAvgThroughput",
-                "tooltip": "Select the average throughput for the selected product."
+                "tooltip": "Select the average throughput for the configuration being updated in FortiFlex."
               },
               {
                 "title": "Web Applications",
-                "description": "Specify the number of web applications for the selected product for which you want to update a new configuration in FortiFlex.",
+                "description": "Specify the number of web applications for the configuration being updated in FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "FWBCPUBWebApp",
-                "tooltip": "Specify the number of web applications for the selected product. Minimum is 1, Maximum is 2000."
+                "tooltip": "Specify the number of web applications for the configuration being updated in FortiFlex."
               }
             ]
           },
@@ -1426,58 +1426,58 @@
       "operation": "create_vm_entitlements",
       "category": "investigation",
       "annotation": "create_vm_entitlements",
-      "description": "Creates a VM entitlements based on a configuration in FortiFlex based on the configuration ID, description, count, folder path, and end datetime that you have specified.",
+      "description": "Creates a VM entitlement in FortiFlex based on the configuration ID, count, folder path, description, and end datetime that you have specified.",
       "title": "Create VM Entitlements",
       "parameters": [
         {
           "title": "Configuration ID",
-          "description": "Specify the ID of the configuration based on which you want to create a VM entitlements in FortiFlex.",
+          "description": "Specify the ID of the configuration based on which you want to create VM entitlements in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "configId",
-          "tooltip": "Specify the ID of the configuration based on which you want to create a VM entitlements in FortiFlex."
+          "tooltip": "Specify the ID of the configuration based on which you want to create VM entitlements in FortiFlex."
         },
         {
           "title": "Count",
-          "description": "Specify the count value based on which you want to create a number of VM entitlements in FortiFlex.",
+          "description": "Specify the count of VM entitlements to create in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "count",
-          "tooltip": "Specify the count value based on which you want to create a number of VM entitlements in FortiFlex."
+          "tooltip": "Specify the count of VM entitlements to create in FortiFlex."
         },
         {
           "title": "Folder Path",
-          "description": "Specify the folder path based on which you want to create a VM entitlements in FortiFlex.",
+          "description": "Specify the folder path of VM entitlements to create in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "folderPath",
-          "tooltip": "Specify the folder path on which you want to create a VM entitlements in FortiFlex."
+          "tooltip": "Specify the folder path of VM entitlements to create in FortiFlex."
         },
         {
           "title": "Description",
-          "description": "Specify the brief description based on which you want to create a VM entitlements in FortiFlex.",
+          "description": "Specify a brief description of VM entitlements to create in FortiFlex.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "description",
-          "tooltip": "Specify the brief description based on which you want to create a VM entitlements in FortiFlex."
+          "tooltip": "Specify a brief description of VM entitlements to create in FortiFlex."
         },
         {
           "title": "End DateTime",
-          "description": "Specify the end datetime based on which you want to create a VM entitlements in FortiFlex. NOTE: By passing null it will use the Program's end date automatically.",
+          "description": "Specify the end date time of VM entitlements being created in FortiFlex. NOTE: By passing null or leaving the field blank, the entitlement uses the Program's end date automatically.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "datetime",
           "name": "endDate",
-          "tooltip": "Specify the end datetime based on which you want to create a VM entitlements in FortiFlex. NOTE: By passing null it will use the Program's end date automatically."
+          "tooltip": "Specify the end date time of VM entitlements being created in FortiFlex. NOTE: By passing null or leaving the field blank, the entitlement uses the Program's end date automatically."
         }
       ],
       "output_schema": {
@@ -1504,7 +1504,7 @@
       "operation": "create_hardware_entitlements",
       "category": "investigation",
       "annotation": "create_hardware_entitlements",
-      "description": "Creates a hardware entitlements based on a configuration in FortiFlex based on the configuration ID, serial numbers, and end datetime that you have specified.",
+      "description": "Creates a hardware entitlement in FortiFlex based on the configuration ID, serial numbers, and end datetime that you have specified.",
       "title": "Create Hardware Entitlements",
       "parameters": [
         {
@@ -1519,23 +1519,23 @@
         },
         {
           "title": "Serial Numbers",
-          "description": "Specify the serial numbers based on which you want to create a hardware entitlements in FortiFlex. You can specify multiple serial numbers as comma-separated values.",
+          "description": "Specify the serial numbers of the hardware entitlements to create in FortiFlex. You can specify multiple serial numbers as comma-separated values.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "serialNumbers",
-          "tooltip": "Specify the serial numbers based on which you want to create a hardware entitlements in FortiFlex. You can specify multiple serial numbers as comma-separated values."
+          "tooltip": "Specify the serial numbers of the hardware entitlements to create in FortiFlex. You can specify multiple serial numbers as comma-separated values."
         },
         {
           "title": "End DateTime",
-          "description": "Specify the end datetime based on which you want to create a hardware entitlements in FortiFlex. NOTE: By passing null it will use the Program's end date automatically.",
+          "description": "Specify the end datetime of the hardware entitlements to create in FortiFlex. NOTE: By passing null or leaving the field blank, the entitlement uses the Program's end date automatically.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "datetime",
           "name": "endDate",
-          "tooltip": "Specify the end datetime based on which you want to create a hardware entitlements in FortiFlex. NOTE: By passing null it will use the Program's end date automatically."
+          "tooltip": "Specify the end datetime of the hardware entitlements to create in FortiFlex. NOTE: By passing null or leaving the field blank, the entitlement uses the Program's end date automatically."
         }
       ],
       "output_schema": {
@@ -1562,18 +1562,18 @@
       "operation": "get_entitlements",
       "category": "investigation",
       "annotation": "get_entitlements",
-      "description": "Retrieves the list of existing entitlements for a configuration from FortiFlex based on the configuration ID you have specified.",
+      "description": "Retrieves the list of existing entitlements for a configuration from FortiFlex based on the configuration ID or account ID you have specified.",
       "title": "Get All Entitlement List",
       "parameters": [
         {
           "title": "Fetch Based On",
-          "description": "Specify the filter value using which you want to filter entitlements retrieved by this operation.",
+          "description": "Select an option to filter entitlements retrieved by this operation. You can choose from following options: Configuration ID or Account ID and Program Serial Number.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "select",
           "name": "filter",
-          "tooltip": "Specify the filter value using which you want to filter entitlements retrieved by this operation.",
+          "tooltip": "Select an option to filter entitlements retrieved by this operation. You can choose from following options: Configuration ID or Account ID and Program Serial Number.",
           "options": [
             "Configuration ID",
             "Account ID and Program Serial Number"
@@ -1582,35 +1582,35 @@
             "Configuration ID": [
               {
                 "title": "Configuration ID",
-                "description": "Specify the ID of the configuration based on which you want to retrieve entitlements from FortiFlex.",
+                "description": "Specify the configuration ID, in the configuration ID field, to retrieve entitlements from FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "configId",
-                "tooltip": "Specify the ID of the configuration based on which you want to retrieve entitlements from FortiFlex."
+                "tooltip": "Specify the configuration ID, in the configuration ID field, to retrieve entitlements from FortiFlex."
               }
             ],
             "Account ID and Program Serial Number": [
               {
                 "title": "Account ID",
-                "description": "Specify the ID of the account based on which you want to retrieve entitlements from FortiFlex.",
+                "description": "Specify the account ID to retrieve entitlements from FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "accountId",
-                "tooltip": "Specify the ID of the account based on which you want to retrieve entitlements from FortiFlex."
+                "tooltip": "Specify the account ID to retrieve entitlements from FortiFlex."
               },
               {
                 "title": "Program Serial Number",
-                "description": "Specify the serial number of the program based on which you want to retrieve entitlements from FortiFlex.",
+                "description": "Specify the program serial number to retrieve entitlements from FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "text",
                 "name": "programSerialNumber",
-                "tooltip": "Specify the serial number of the program based on which you want to retrieve entitlements from FortiFlex."
+                "tooltip": "Specify the program serial number to retrieve entitlements from FortiFlex."
               }
             ]
           }
@@ -1640,48 +1640,48 @@
       "operation": "update_entitlements",
       "category": "investigation",
       "annotation": "update_entitlements",
-      "description": "Update an entitlements details in FortiFlex based on the configuration ID, serial number, description and end datetime that you have specified.",
+      "description": "Update an entitlements details in FortiFlex based on the configuration ID, serial number, description, and end datetime that you have specified.",
       "title": "Update Entitlements",
       "parameters": [
         {
           "title": "Configuration ID",
-          "description": "Specify the ID of the configuration based on which you want to update an entitlements in FortiFlex.",
+          "description": "Specify the configuration ID of the entitlements to update in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "configId",
-          "tooltip": "Specify the ID of the configuration based on which you want to update an entitlements in FortiFlex."
+          "tooltip": "Specify the configuration ID of the entitlements to update in FortiFlex."
         },
         {
           "title": "Serial Number",
-          "description": "Specify the serial number based on which you want to update an entitlements in FortiFlex.",
+          "description": "Specify the serial number of the entitlements to update in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "serialNumber",
-          "tooltip": "Specify the serial number based on which you want to update an entitlements in FortiFlex."
+          "tooltip": "Specify the serial number of the entitlements to update in FortiFlex."
         },
         {
           "title": "Description",
-          "description": "Specify the brief description based on which you want to update an entitlements in FortiFlex.",
+          "description": "Specify the brief description of the entitlements to update in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "description",
-          "tooltip": "Specify the brief description based on which you want to update an entitlements in FortiFlex."
+          "tooltip": "Specify the brief description of the entitlements to update in FortiFlex."
         },
         {
           "title": "End DateTime",
-          "description": "Specify the end datetime based on which you want to update an entitlements in FortiFlex.",
+          "description": "Specify the end datetime of the entitlements to update in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "datetime",
           "name": "endDate",
-          "tooltip": "Specify the end datetime based on which you want to update an entitlements in FortiFlex."
+          "tooltip": "Specify the end datetime of the entitlements to update in FortiFlex."
         }
       ],
       "output_schema": {
@@ -1713,13 +1713,13 @@
       "parameters": [
         {
           "title": "Serial Number",
-          "description": "Specify the serial number based on which you want to stop an entitlement in FortiFlex.",
+          "description": "Specify the serial number of the entitlement to stop in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "serialNumber",
-          "tooltip": "Specify the serial number based on which you want to stop an entitlement in FortiFlex."
+          "tooltip": "Specify the serial number of the entitlement to stop in FortiFlex."
         }
       ],
       "output_schema": {
@@ -1751,13 +1751,13 @@
       "parameters": [
         {
           "title": "Serial Number",
-          "description": "Specify the serial number based on which you want to reactivate an entitlement in FortiFlex.",
+          "description": "Specify the serial number of the entitlement to reactivate in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "serialNumber",
-          "tooltip": "Specify the serial number based on which you want to reactivate an entitlement in FortiFlex."
+          "tooltip": "Specify the serial number of the entitlement to reactivate in FortiFlex."
         }
       ],
       "output_schema": {
@@ -1784,12 +1784,12 @@
       "operation": "transfer_entitlement",
       "category": "investigation",
       "annotation": "transfer_entitlement",
-      "description": "Move serial numbers and entitlements managed by FortiFlex from one account to another.",
+      "description": "Move serial numbers and entitlements managed by FortiFlex from one account to another based on the source account ID, target account ID, and other input parameters you have specified.",
       "title": "Transfer Entitlement",
       "parameters": [
         {
           "title": "Source Account ID",
-          "description": "Specify the account ID of the source based on which you want to move serial numbers and entitlements from one account to another in FortiFlex.",
+          "description": "Specify the source account ID from where the entitlements are being transferred in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -1799,27 +1799,27 @@
         },
         {
           "title": "Source Config ID",
-          "description": "Specify the config ID of the source based on which you want to move serial numbers and entitlements from one account to another in FortiFlex.",
+          "description": "Specify the source config ID associated with the entitlements being transferred in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "sourceConfigId",
-          "tooltip": "Specify the config ID of the source. Note: \"Source Config ID\" should belong to \"Source Account ID\"."
+          "tooltip": "Specify the source config ID. Note: \"Source Config ID\" should belong to \"Source Account ID\"."
         },
         {
           "title": "Serial Number",
-          "description": "Specify the comma-separated serial numbers based on which you want to move serial numbers and entitlements from one account to another in FortiFlex.",
+          "description": "Specify the comma-separated serial numbers of the entitlements being transferred in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "serialNumbers",
-          "tooltip": "Specify the comma-separated serial numbers. Note: All serial numbers should belong to \"Source Config ID\""
+          "tooltip": "Specify the comma-separated serial numbers of the entitlements being transferred in FortiFlex. Note: All serial numbers should belong to \"Source Config ID\""
         },
         {
           "title": "Target Account ID",
-          "description": "Specify the account ID of the target based on which you want to move serial numbers and entitlements from one account to another in FortiFlex.",
+          "description": "Specify the target account ID to where the entitlements are being transferred in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -1829,13 +1829,13 @@
         },
         {
           "title": "Target Config ID",
-          "description": "Specify the account ID of the target based on which you want to move serial numbers and entitlements from one account to another in FortiFlex.",
+          "description": "Specify the target config ID associated with the entitlements being transferred in FortiFlex.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "targetConfigId",
-          "tooltip": "Specify the account ID of the target. Note: If \"Target Config ID\" is not provided, create a copy of source configuration in target account regardless of whether similar configuration already exists otherwise it belongs to \"Target Account ID\". Also, source configuration and target configuration should be the same product type. But they don't have to have same parameter values."
+          "tooltip": "Specify the target config ID. Note: If \"Target Config ID\" is not provided, create a copy of source configuration in target account regardless of whether similar configuration already exists otherwise it belongs to \"Target Account ID\". Also, source configuration and target configuration should be the same product type. But they don't have to have same parameter values."
         }
       ],
       "output_schema": {
@@ -1867,13 +1867,13 @@
       "parameters": [
         {
           "title": "Serial Number",
-          "description": "Specify the serial number based on which you want to regenerate token for a VM in FortiFlex.",
+          "description": "Specify the serial number of the VM to regenerate its token in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "serialNumber",
-          "tooltip": "Specify the serial number based on which you want to regenerate token for a VM in FortiFlex."
+          "tooltip": "Specify the serial number of the VM to regenerate its token in FortiFlex."
         }
       ],
       "output_schema": {
@@ -1900,18 +1900,18 @@
       "operation": "get_point_usage_for_vm",
       "category": "investigation",
       "annotation": "get_point_usage_for_vm",
-      "description": "Retrieves the total points consumed by one or more virtual machines in a date range in FortiFlex based on the serial number and datetime parameters you have specified.",
+      "description": "Retrieves the total points consumed by one or more virtual machines in a date range in FortiFlex based on the datetime range and other parameters you have specified.",
       "title": "Get Point Usage for VM",
       "parameters": [
         {
           "title": "Fetch Based On",
-          "description": "Specify the filter value using which you want to filter points for a VM retrieved by this operation.",
+          "description": "Select an option to filter points usage retrieved by this operation. You can choose from following options: Configuration ID or Account ID and Program Serial Number.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "select",
           "name": "filter",
-          "tooltip": "Specify the filter value using which you want to filter points for a VM retrieved by this operation.",
+          "tooltip": "Select an option to filter points usage retrieved by this operation. You can choose from following options: Configuration ID or Account ID and Program Serial Number.",
           "options": [
             "Configuration ID",
             "Account ID and Program Serial Number"
@@ -1920,58 +1920,58 @@
             "Configuration ID": [
               {
                 "title": "Configuration ID",
-                "description": "Specify the ID of the configuration based on which you want to retrieve points for a VM from FortiFlex.",
+                "description": "Specify the configuration ID, in the configuration ID field, to retrieve points usage from FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "configId",
-                "tooltip": "Specify the ID of the configuration based on which you want to retrieve points for a VM from FortiFlex."
+                "tooltip": "Specify the configuration ID, in the configuration ID field, to retrieve points usage from FortiFlex."
               }
             ],
             "Account ID and Program Serial Number": [
               {
                 "title": "Account ID",
-                "description": "Specify the ID of the account based on which you want to retrieve points for a VM from FortiFlex.",
+                "description": "Specify the account ID to retrieve points usage from FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "integer",
                 "name": "accountId",
-                "tooltip": "Specify the ID of the account based on which you want to retrieve points for a VM from FortiFlex."
+                "tooltip": "Specify the account ID to retrieve points usage from FortiFlex."
               },
               {
                 "title": "Program Serial Number",
-                "description": "Specify the serial number of the program based on which you want to retrieve points for a VM from FortiFlex.",
+                "description": "Specify the program serial number to retrieve points usage from FortiFlex.",
                 "required": true,
                 "editable": true,
                 "visible": true,
                 "type": "text",
                 "name": "programSerialNumber",
-                "tooltip": "Specify the serial number of the program based on which you want to retrieve points for a VM from FortiFlex."
+                "tooltip": "Specify the program serial number to retrieve points usage from FortiFlex."
               }
             ]
           }
         },
         {
           "title": "Start DateTime",
-          "description": "Specify the start datetime based on which you want to retrieve points for a VM in FortiFlex.",
+          "description": "Specify the start date and time of the points usage to retrieve points for a VM in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "datetime",
           "name": "startDate",
-          "tooltip": "Specify the start datetime based on which you want to retrieve points for a VM in FortiFlex."
+          "tooltip": "Specify the start date and time of the points usage to retrieve points for a VM in FortiFlex."
         },
         {
           "title": "End DateTime",
-          "description": "Specify the end datetime based on which you want to retrieve points for a VM in FortiFlex.",
+          "description": "Specify the end date and time of the points usage to retrieve points for a VM in FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "datetime",
           "name": "endDate",
-          "tooltip": "Specify the end datetime based on which you want to retrieve points for a VM in FortiFlex."
+          "tooltip": "Specify the end date and time of the points usage to retrieve points for a VM in FortiFlex."
         }
       ],
       "output_schema": {
@@ -1997,13 +1997,13 @@
       "parameters": [
         {
           "title": "Account ID",
-          "description": "Specify the ID of the account based on which you want to retrieve groups from FortiFlex.",
+          "description": "Specify the ID of the account to retrieve its groups from FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "accountId",
-          "tooltip": "Specify the ID of the account based on which you want to retrieve groups from FortiFlex."
+          "tooltip": "Specify the ID of the account to retrieve its groups from FortiFlex."
         }
       ],
       "output_schema": {
@@ -2030,33 +2030,33 @@
       "parameters": [
         {
           "title": "Account ID",
-          "description": "Specify the ID of the account based on which you want to retrieve token from FortiFlex.",
+          "description": "Specify the ID of the account to retrieve its NextToken from FortiFlex.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "accountId",
-          "tooltip": "Specify the ID of the account based on which you want to retrieve token from FortiFlex."
+          "tooltip": "Specify the ID of the account to retrieve its NextToken from FortiFlex."
         },
         {
           "title": "Config ID",
-          "description": "Specify the ID of the config based on which you want to retrieve token from FortiFlex.",
+          "description": "Specify the ID of the config associated with the account to retrieve its NextToken from FortiFlex.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "configId",
-          "tooltip": "Specify the ID of the config based on which you want to retrieve token from FortiFlex."
+          "tooltip": "Specify the ID of the config associated with the account to retrieve its NextToken from FortiFlex."
         },
         {
           "title": "Asset Folder Path",
-          "description": "Specify the folder path of the asset based on which you want to retrieve token from FortiFlex.",
+          "description": "Specify the folder path of the asset to retrieve its NextToken from FortiFlex.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "folderPath",
-          "tooltip": "Specify the folder path of the asset based on which you want to retrieve token from FortiFlex."
+          "tooltip": "Specify the folder path of the asset to retrieve its NextToken from FortiFlex."
         }
       ],
       "output_schema": {
